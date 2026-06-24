@@ -1,0 +1,4 @@
+Contact: mailto:cabotage@pm.me
+Expires: 2027-01-01T00:00:00.000Z
+Canonical: https://lodripeter-sec.github.io/.well-known/security.txt
+Preferred-Languages: en, hu

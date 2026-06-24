@@ -1,0 +1,51 @@
+# Peter Lodri — lodripeter-sec.github.io
+
+> Builder of loops. Open source. Tatabánya, Earth.
+> Genesis seal: 7c242080f5f821e5eaf563fe2208d60632c451687baf65f4fe8e4a0d226e3ecf
+
+## Philosophy
+
+- The loop is already here. Each iteration's output becomes the next iteration's input.
+- Slop is data. Imperfect output is still something to improve with at every layer.
+- Time is the only parameter. The longer a correctable loop runs, the better it gets.
+- Form the tool to ourselves. Open. Fair. Available to everyone.
+
+## Writing
+
+- [pocoo.vaked.dev](https://pocoo.vaked.dev): technical blog — loops, compilers, agentic systems
+- [Atom feed](https://pocoo.vaked.dev/feed.xml)
+- Key posts: [the loop is already here](https://pocoo.vaked.dev/posts/2026-06-24-the-loop-is-already-here.html) · [genesis contract, formally](https://pocoo.vaked.dev/posts/2026-06-24-genesis-contract-formally.html) · [the correctable loop](https://pocoo.vaked.dev/posts/2026-06-24-the-correctable-loop.html) · [your first free infinite loop](https://pocoo.vaked.dev/posts/2026-06-24-your-first-free-infinite-loop.html)
+
+## Projects
+
+- [protocol.vaked.dev](https://protocol.vaked.dev): AG-UI open protocol — the UI↔AI surface standard
+- [music.vaked.dev](https://music.vaked.dev): ENTHEA — WebGL2 psychedelic visual synthesizer (AGPL-3.0)
+- [chat.vaked.dev](https://chat.vaked.dev): G0DM0D3 — free-model AI chat proxy
+- [dogfeedOS](https://github.com/peterlodri-sec/dogfeedOS): self-improving Q&A data loop for Raspberry Pi
+- [ultrawhale](https://github.com/peterlodri-sec/ultrawhale): coding agent that builds itself (v100.1.0)
+- [irc.vaked.dev](https://irc.vaked.dev): public IRC community (Ergo + Gamja)
+- [beat.vaked.dev](https://beat.vaked.dev): Vaked-FM swarm avatar
+
+## Open Dataset
+
+- [PeetPedro/ultrawhale-dogfood](https://huggingface.co/datasets/PeetPedro/ultrawhale-dogfood): live open dataset — dogfeed loop output + vaked site telemetry
+- Telemetry: Tier 2, no PII, structural metadata only. Sources: chat, music, beat, irc, pocoo, protocol, lodripeter-sec.github.io
+- Format: JSONL + Parquet (snappy), auto-updated every 6h via CI
+
+## OSS Contributions
+
+- [headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom): context compression for AI agents
+  - PR #1363: fix Kompress ML compression on tool role messages
+  - PR #1365: add --no-rate-limit to headroom install apply
+  - PR #1366: normalize streaming tool_call objects to dicts (agno)
+  - PR #1368: move hnswlib to [memory-hnsw] extra (packaging)
+  - PR #1369: CO₂ saved card in dashboard
+  - PR #1378: restore headroom dashboard command
+
+## Contact
+
+- GitHub: https://github.com/peterlodri-sec
+- X: https://x.com/0xp3t3rl
+- Mastodon: https://social.crabcc.app/@vakedbot
+- Email: cabotage@pm.me
+- Sponsor: https://github.com/sponsors/peterlodri-sec

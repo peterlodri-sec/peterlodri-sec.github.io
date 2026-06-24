@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peter Lodri</title>
+<meta name="description" content="Builder of loops. Open source. Tatabánya, Earth.">
+<meta name="theme-color" content="#05060a">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root {
+  --bg:     #05060a;
+  --ink:    #e7e2f7;
+  --dim:    #9a93b8;
+  --line:   rgba(170,150,255,.15);
+  --accent: #b48bff;
+  --cyan:   #00d4ff;
+  --green:  #00e660;
+  --warn:   #ffb020;
+  --mono:   ui-monospace,'SF Mono','JetBrains Mono',Menlo,Consolas,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow-x:hidden;background:var(--bg);color:var(--ink);font-family:var(--mono)}
+canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+/* ── layout ────────────────────────────────────────────────── */
+.page{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3rem 1.5rem}
+.card{max-width:640px;width:100%;padding:2.5rem;background:rgba(5,6,10,.85);border:1px solid var(--line);border-radius:12px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+/* ── bio block ─────────────────────────────────────────────── */
+.avatar{width:56px;height:56px;border-radius:50%;border:2px solid var(--accent);margin-bottom:1.25rem;opacity:.9}
+h1{margin:0 0 .35rem;font-size:1.5rem;font-weight:700;color:var(--ink);letter-spacing:.02em}
+.tagline{color:var(--accent);font-size:.9rem;margin-bottom:1.5rem;letter-spacing:.04em}
+
+/* ── philosophy ─────────────────────────────────────────────── */
+.philosophy{font-size:.85rem;line-height:1.8;color:var(--dim);border-left:2px solid var(--line);padding-left:1rem;margin-bottom:2rem}
+.philosophy p{margin:.4rem 0}
+.philosophy .key{color:var(--ink)}
+
+/* ── links grid ─────────────────────────────────────────────── */
+.links{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:2rem}
+@media(max-width:480px){.links{grid-template-columns:1fr}}
+.link-item{
+  display:flex;align-items:center;gap:.6rem;
+  padding:.55rem .8rem;border-radius:6px;
+  border:1px solid var(--line);
+  background:rgba(180,139,255,.05);
+  color:var(--dim);font-size:.78rem;
+  text-decoration:none;transition:border-color .2s,color .2s,background .2s
+}
+.link-item:hover{border-color:var(--accent);color:var(--ink);background:rgba(180,139,255,.10)}
+.link-item .icon{font-size:.9rem;flex-shrink:0;width:1rem;text-align:center}
+.link-item .label{font-weight:600;color:var(--ink)}
+.link-item .sub{display:block;font-size:.7rem;color:var(--dim);margin-top:.1rem}
+.link-item.sponsor{border-color:rgba(255,176,32,.3);background:rgba(255,176,32,.05)}
+.link-item.sponsor:hover{border-color:var(--warn);color:var(--warn)}
+.link-item.sponsor .label{color:var(--warn)}
+
+/* ── footer ─────────────────────────────────────────────────── */
+footer{font-size:.7rem;color:var(--dim);text-align:center;padding-top:1.5rem;border-top:1px solid var(--line)}
+footer a{color:var(--dim);transition:color .2s}
+footer a:hover{color:var(--accent)}
+.dot-sep{margin:0 .4rem;opacity:.4}
+</style>
+</head>
+<body>
+
+<canvas id="bg"></canvas>
+
+<div class="page">
+  <div class="card">
+
+    <!-- bio -->
+    <img class="avatar" src="https://github.com/peterlodri-sec.png" alt="Peter Lodri" loading="lazy">
+    <h1>Peter Lodri</h1>
+    <div class="tagline">⟳ builder of loops · open systems · Tatabánya, Earth</div>
+
+    <!-- philosophy -->
+    <div class="philosophy">
+      <p><span class="key">The loop is already here.</span> Every iteration's output becomes the next iteration's input.</p>
+      <p><span class="key">Slop is data.</span> Imperfect output is still something to improve with at every layer.</p>
+      <p><span class="key">Time is the only parameter.</span> The longer you let a correctable loop run, the better it gets.</p>
+      <p><span class="key">Form the tool to ourselves.</span> Open. Fair. Available to everyone.</p>
+    </div>
+
+    <!-- links -->
+    <div class="links">
+      <a href="https://pocoo.vaked.dev" class="link-item">
+        <span class="icon">✍</span>
+        <span><span class="label">pocoo.vaked.dev</span><span class="sub">technical writing · loops · compilers</span></span>
+      </a>
+      <a href="https://protocol.vaked.dev" class="link-item">
+        <span class="icon">⊰</span>
+        <span><span class="label">protocol.vaked.dev</span><span class="sub">AG-UI open protocol · genesis</span></span>
+      </a>
+      <a href="https://music.vaked.dev" class="link-item">
+        <span class="icon">♫</span>
+        <span><span class="label">music.vaked.dev</span><span class="sub">ENTHEA · neural field visualizer</span></span>
+      </a>
+      <a href="https://chat.vaked.dev" class="link-item">
+        <span class="icon">⌨</span>
+        <span><span class="label">chat.vaked.dev</span><span class="sub">G0DM0D3 · free-model AI chat</span></span>
+      </a>
+      <a href="https://irc.vaked.dev" class="link-item">
+        <span class="icon">◈</span>
+        <span><span class="label">irc.vaked.dev</span><span class="sub">public IRC community</span></span>
+      </a>
+      <a href="https://github.com/peterlodri-sec/dogfeedOS" class="link-item">
+        <span class="icon">⟳</span>
+        <span><span class="label">dogfeedOS</span><span class="sub">self-improving RPi data loop</span></span>
+      </a>
+      <a href="https://github.com/peterlodri-sec/ultrawhale" class="link-item">
+        <span class="icon">🐋</span>
+        <span><span class="label">ultrawhale</span><span class="sub">coding agent that builds itself</span></span>
+      </a>
+      <a href="https://huggingface.co/datasets/PeetPedro/ultrawhale-dogfood" class="link-item">
+        <span class="icon">◎</span>
+        <span><span class="label">ultrawhale-dogfood</span><span class="sub">open dataset · live · self-feeding</span></span>
+      </a>
+      <a href="https://github.com/peterlodri-sec" class="link-item">
+        <span class="icon">⌥</span>
+        <span><span class="label">github</span><span class="sub">peterlodri-sec</span></span>
+      </a>
+      <a href="https://x.com/0xp3t3rl" class="link-item">
+        <span class="icon">✕</span>
+        <span><span class="label">x / twitter</span><span class="sub">@0xp3t3rl</span></span>
+      </a>
+      <a href="https://social.crabcc.app/@vakedbot" class="link-item">
+        <span class="icon">🐘</span>
+        <span><span class="label">mastodon</span><span class="sub">@vakedbot@social.crabcc.app</span></span>
+      </a>
+      <a href="https://github.com/sponsors/peterlodri-sec" class="link-item sponsor">
+        <span class="icon">♥</span>
+        <span><span class="label">sponsor</span><span class="sub">support open loops</span></span>
+      </a>
+    </div>
+
+    <footer>
+      <a href="https://pocoo.vaked.dev/feed.xml">feed</a>
+      <span class="dot-sep">·</span>
+      <a href="https://vaked.dev">vaked.dev</a>
+      <span class="dot-sep">·</span>
+      <a href="https://crabcc.app">crabcc.app</a>
+      <span class="dot-sep">·</span>
+      <span style="color:rgba(155,147,184,.4)">Tatabánya · Earth · 2026</span>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+/* ── WebGL2 ambient canvas — rings + wave, music.vaked.dev inspired ─── */
+(function(){
+  const canvas = document.getElementById('bg');
+  const gl = canvas.getContext('webgl2');
+  if(!gl) return;
+
+  const VS = `#version 300 es
+  in vec2 a_pos;
+  void main(){gl_Position=vec4(a_pos,0,1);}`;
+
+  const FS = `#version 300 es
+  precision highp float;
+  uniform vec2 u_res;
+  uniform float u_t;
+  out vec4 outColor;
+
+  float ring(vec2 uv, float r, float w){
+    float d=length(uv)-r;
+    return smoothstep(w,0.,abs(d));
+  }
+
+  void main(){
+    vec2 uv=(gl_FragCoord.xy/u_res)*2.-1.;
+    uv.x*=u_res.x/u_res.y;
+
+    float t=u_t*.18;
+    vec3 col=vec3(0.);
+
+    // Pulsing rings — accent + cyan
+    float r1=ring(uv,.55+.04*sin(t*.7),.006);
+    float r2=ring(uv,.38+.03*sin(t*.5+1.2),.004);
+    float r3=ring(uv,.72+.05*sin(t*.4+2.4),.003);
+    float r4=ring(uv,.22+.02*sin(t*.9),.005);
+
+    col+=r1*vec3(.44,.27,1.)*(.4+.3*sin(t*.6));
+    col+=r2*vec3(.0,.83,1.)*(.35+.25*sin(t*.5+.8));
+    col+=r3*vec3(.44,.27,1.)*(.25+.2*sin(t*.35+1.6));
+    col+=r4*vec3(.0,.9,.4)*(.3+.2*sin(t*.8+2.));
+
+    // Ambient glow at center
+    float glow=exp(-length(uv)*2.8);
+    col+=glow*vec3(.18,.1,.4)*.6;
+
+    // Horizontal wave at bottom
+    float wave=0.;
+    for(float i=0.;i<3.;i++){
+      float freq=.006+i*.002;
+      float amp=.06-.015*i;
+      float spd=.5+i*.15;
+      float py=-.62+amp*sin(gl_FragCoord.x*freq+t*spd+i*2.1);
+      wave+=smoothstep(.012,.0,abs(uv.y-py))*(.18-.05*i);
+    }
+    col+=wave*vec3(.27,.56,1.);
+
+    // subtle noise shimmer
+    float n=fract(sin(dot(uv+t*.01,vec2(127.1,311.7)))*43758.5);
+    col+=n*.015;
+
+    outColor=vec4(col,1.);
+  }`;
+
+  function compile(type,src){
+    const s=gl.createShader(type);
+    gl.shaderSource(s,src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog=gl.createProgram();
+  gl.attachShader(prog,compile(gl.VERTEX_SHADER,VS));
+  gl.attachShader(prog,compile(gl.FRAGMENT_SHADER,FS));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+
+  const buf=gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+  const loc=gl.getAttribLocation(prog,'a_pos');
+  gl.enableVertexAttribArray(loc);
+  gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+
+  const uRes=gl.getUniformLocation(prog,'u_res');
+  const uT=gl.getUniformLocation(prog,'u_t');
+
+  function resize(){
+    canvas.width=innerWidth;
+    canvas.height=innerHeight;
+    gl.viewport(0,0,innerWidth,innerHeight);
+  }
+  resize();
+  window.addEventListener('resize',resize);
+
+  let t=0;
+  function frame(){
+    t+=.016;
+    gl.uniform2f(uRes,canvas.width,canvas.height);
+    gl.uniform1f(uT,t);
+    gl.drawArrays(gl.TRIANGLES,0,3);
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+</script>
+</body>
+</html>

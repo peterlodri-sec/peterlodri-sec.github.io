@@ -33,6 +33,27 @@ canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 h1{margin:0 0 .35rem;font-size:1.5rem;font-weight:700;color:var(--ink);letter-spacing:.02em}
 .tagline{color:var(--accent);font-size:.9rem;margin-bottom:1.5rem;letter-spacing:.04em}
 
+/* ── quote ───────────────────────────────────────────────────── */
+.quote{
+  font-size:.82rem;line-height:1.7;color:var(--dim);
+  border-left:2px solid var(--accent);padding-left:1rem;
+  margin-bottom:1.75rem;font-style:italic;
+}
+.quote cite{display:block;margin-top:.4rem;font-style:normal;font-size:.7rem;color:rgba(155,147,184,.5)}
+
+/* ── recent writing ──────────────────────────────────────────── */
+.section-label{font-size:.65rem;letter-spacing:.12em;color:var(--dim);text-transform:uppercase;margin-bottom:.6rem;opacity:.6}
+.posts{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1.75rem}
+.post-link{
+  display:flex;align-items:baseline;gap:.5rem;
+  font-size:.75rem;color:var(--dim);text-decoration:none;
+  padding:.3rem 0;border-bottom:1px solid rgba(170,150,255,.07);
+  transition:color .2s
+}
+.post-link:hover{color:var(--ink)}
+.post-link .post-title{color:var(--ink);font-size:.78rem}
+.post-link .post-tag{font-size:.65rem;color:var(--accent);opacity:.7;margin-left:.3rem}
+
 /* ── genesis seal ────────────────────────────────────────────── */
 .genesis-seal{
   display:flex;align-items:center;gap:.5rem;
@@ -106,6 +127,12 @@ footer a:hover{color:var(--accent)}
     <h1>Peter Lodri</h1>
     <div class="tagline">⟳ builder of loops · open systems · Tatabánya, Earth</div>
 
+    <!-- quote -->
+    <blockquote class="quote">
+      "When you fine-tune on silver labels, you're fine-tuning on someone else's decisions about what mattered."
+      <cite>— <a href="https://pocoo.vaked.dev/posts/2026-06-25-the-silver-label-problem.html" style="color:inherit;text-decoration:none">The silver label problem</a>, 2026-06-25</cite>
+    </blockquote>
+
     <!-- philosophy -->
     <div class="philosophy">
       <p><span class="key">The loop is already here.</span> Every iteration's output becomes the next iteration's input.</p>
@@ -148,6 +175,14 @@ footer a:hover{color:var(--accent)}
         <span class="icon">◎</span>
         <span><span class="label">ultrawhale-dogfood</span><span class="sub">open dataset · live · self-feeding</span></span>
       </a>
+      <a href="https://huggingface.co/PeetPedro/kompress-v4" class="link-item">
+        <span class="icon">⟁</span>
+        <span><span class="label">kompress-v4</span><span class="sub">self-labeled compression model · ModernBERT</span></span>
+      </a>
+      <a href="https://github.com/headroomlabs-ai/headroom/pull/1400" class="link-item">
+        <span class="icon">⊕</span>
+        <span><span class="label">headroom #1400</span><span class="sub">must-keep token override · approved</span></span>
+      </a>
       <a href="https://github.com/peterlodri-sec" class="link-item">
         <span class="icon">⌥</span>
         <span><span class="label">github</span><span class="sub">peterlodri-sec</span></span>
@@ -163,6 +198,32 @@ footer a:hover{color:var(--accent)}
       <a href="https://github.com/sponsors/peterlodri-sec" class="link-item sponsor">
         <span class="icon">♥</span>
         <span><span class="label">sponsor</span><span class="sub">support open loops</span></span>
+      </a>
+    </div>
+
+    <!-- recent writing -->
+    <div class="section-label">recent writing</div>
+    <div class="posts">
+      <a href="https://pocoo.vaked.dev/posts/2026-06-25-loop-engineering-applied.html" class="post-link">
+        <span class="post-title">Loop engineering applied</span><span class="post-tag">loops · ml</span>
+      </a>
+      <a href="https://pocoo.vaked.dev/posts/2026-06-25-iterative-self-labeling.html" class="post-link">
+        <span class="post-title">Iterative self-labeling: how we taught a model to compress itself</span><span class="post-tag">ml · open-source</span>
+      </a>
+      <a href="https://pocoo.vaked.dev/posts/2026-06-25-we-ran-the-loop.html" class="post-link">
+        <span class="post-title">We ran the loop. Here's what the 14-step roadmap missed.</span><span class="post-tag">loops</span>
+      </a>
+      <a href="https://pocoo.vaked.dev/posts/2026-06-25-the-silver-label-problem.html" class="post-link">
+        <span class="post-title">The silver label problem</span><span class="post-tag">ml · training-data</span>
+      </a>
+      <a href="https://pocoo.vaked.dev/posts/2026-06-25-kompress-heretic-eval.html" class="post-link">
+        <span class="post-title">Testing kompress with heretic</span><span class="post-tag">ml · evaluation</span>
+      </a>
+      <a href="https://pocoo.vaked.dev/posts/2026-06-25-fine-tuning-kompress-sapir-whorf.html" class="post-link">
+        <span class="post-title">Fine-tuning Kompress: the Sapir-Whorf case</span><span class="post-tag">ml · language</span>
+      </a>
+      <a href="https://pocoo.vaked.dev" class="post-link" style="opacity:.5;font-size:.7rem">
+        all posts →
       </a>
     </div>
 

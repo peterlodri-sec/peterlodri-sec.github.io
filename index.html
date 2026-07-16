@@ -7,6 +7,7 @@
 <meta name="description" content="Builder of loops. Open source. Tatabánya, Earth.">
 <meta name="theme-color" content="#05060a">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon.svg">
 <style>
 :root {
   --bg:     #05060a;
@@ -65,6 +66,7 @@ footer a:hover{color:var(--accent)}
     <a href="https://github.com/peterlodri-sec/loopkit" class="proj-item"><span class="proj-name">LoopKit</span> <span class="proj-desc">4-phase autonomous training orchestrator</span></a>
     <a href="https://github.com/peterlodri-sec/vaked-base" class="proj-item"><span class="proj-name">Vaked</span> <span class="proj-desc">capability-graph language + agentic runtime</span></a>
     <a href="https://github.com/peterlodri-sec/dogfeedOS" class="proj-item"><span class="proj-name">dogfeedOS</span> <span class="proj-desc">self-improving RPi data loop</span></a>
+    <a href="https://huggingface.co/datasets/PeetPedro/ultrawhale-dogfood" class="proj-item"><span class="proj-name">ultrawhale-dogfood</span> <span class="proj-desc">live open Q&A corpus — 383 files · Jun–Jul 2026</span></a>
     <a href="https://garden.vaked.dev" class="proj-item"><span class="proj-name">the garden</span> <span class="proj-desc">the garden · the game · the bridge</span></a>
     <a href="https://blackhole.vaked.dev" class="proj-item"><span class="proj-name">black hole</span> <span class="proj-desc">real-time GR ray tracer · Schwarzschild metric · WebGL2</span></a>
   </div>
@@ -82,7 +84,10 @@ footer a:hover{color:var(--accent)}
     <a href="https://github.com/peterlodri-sec" class="link">⌥ github</a>
     <a href="https://x.com/0xp3t3rl" class="link">✕ x / twitter</a>
     <a href="https://pocoo.vaked.dev" class="link">✍ pocoo</a>
-    <a href="https://huggingface.co/PeetPedro" class="link">🤗 huggingface</a>
+    <a href="https://constellation.vaked.dev" class="link">⬡ constellation</a>
+    <a href="https://kompress.vaked.dev" class="link">⟳ kompress</a>
+    <a href="https://chat.vaked.dev" class="link">◎ chat</a>
+    <a href="https://huggingface.co/datasets/PeetPedro/ultrawhale-dogfood" class="link">🤗 dataset</a>
     <a href="https://github.com/sponsors/peterlodri-sec" class="link" style="border-color:rgba(255,176,32,.3);color:var(--warn)">♥ sponsor</a>
   </div>
 
@@ -125,6 +130,15 @@ footer a:hover{color:var(--accent)}
   function frame(){t+=.016;gl.uniform2f(uRes,canvas.width,canvas.height);gl.uniform1f(uT,t);gl.drawArrays(gl.TRIANGLES,0,3);requestAnimationFrame(frame);}
   frame();
 })();
+</script>
+
+<div id="new-chip" style="position:fixed;bottom:1.2rem;right:1.2rem;z-index:9999;display:none;align-items:center;gap:.5rem;padding:.4rem .75rem .4rem .6rem;background:rgba(5,6,10,.92);border:1px solid rgba(170,150,255,.2);border-radius:6px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:.68rem;color:rgba(154,147,184,.8);backdrop-filter:blur(8px);opacity:0;transition:opacity .4s">
+  <span style="color:#00d4ff;font-size:.6rem">✦ new</span>
+  <a href="https://art.vaked.dev" target="_blank" rel="noopener" style="color:#b48bff;text-decoration:none">art.vaked.dev</a>
+  <button onclick="document.getElementById('new-chip').style.opacity='0';setTimeout(()=>{document.getElementById('new-chip').style.display='none'},400);sessionStorage.setItem('chip-dismissed','1')" style="background:none;border:none;color:rgba(155,147,184,.4);cursor:pointer;font-size:.7rem;padding:0;margin-left:.2rem;line-height:1">✕</button>
+</div>
+<script>
+(function(){if(sessionStorage.getItem('chip-dismissed'))return;var c=document.getElementById('new-chip');c.style.display='flex';setTimeout(function(){c.style.opacity='1'},800);})();
 </script>
 </body>
 </html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Péter Lodri — Resume (Coefficient Giving)</title>
+<style>
+  @page {
+    size: letter;
+    margin: 14mm 16mm 14mm 16mm;
+  }
+  :root {
+    --text: #0f172a;
+    --muted: #475569;
+    --primary: #0369a1;
+    --border: #cbd5e1;
+    --font-serif: "Palatino Linotype", Palatino, "TeX Gyre Pagella", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-sans);
+    color: var(--text);
+    background: #ffffff;
+    font-size: 9.5pt;
+    line-height: 1.45;
+  }
+  .header {
+    text-align: center;
+    border-bottom: 2px solid var(--text);
+    padding-bottom: 0.6rem;
+    margin-bottom: 0.8rem;
+  }
+  .name {
+    font-family: var(--font-serif);
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #0f172a;
+  }
+  .headline {
+    font-size: 9.5pt;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0.2rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .contact-bar {
+    font-size: 8.5pt;
+    color: var(--muted);
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+  .contact-bar a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+  .contact-bar a:hover { text-decoration: underline; }
+  
+  h2 {
+    font-size: 10.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #0f172a;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.15rem;
+    margin: 0.75rem 0 0.4rem 0;
+  }
+  
+  .entry {
+    margin-bottom: 0.55rem;
+  }
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-weight: 700;
+    font-size: 9.5pt;
+  }
+  .entry-title {
+    color: #0f172a;
+  }
+  .entry-role {
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 9pt;
+  }
+  .entry-date {
+    font-size: 8.5pt;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  ul {
+    padding-left: 1.15rem;
+    margin-top: 0.2rem;
+  }
+  li {
+    margin-bottom: 0.2rem;
+    color: #1e293b;
+    font-size: 9pt;
+  }
+  li strong { color: #0f172a; }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    row-gap: 0.25rem;
+    font-size: 8.8pt;
+    margin-top: 0.3rem;
+  }
+  .skill-cat {
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .skill-list {
+    color: #334155;
+  }
+  
+  .summary-text {
+    font-size: 9pt;
+    color: #334155;
+    line-height: 1.45;
+    margin-bottom: 0.5rem;
+  }
+  code {
+    font-family: var(--font-mono);
+    font-size: 8.5pt;
+    background: #f1f5f9;
+    padding: 0.1rem 0.25rem;
+    border-radius: 3px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="name">PÉTER LODRI</div>
+    <div class="headline">SOTA AI Systems Architect &middot; Technical AI Safety &middot; Quantitative Systems Researcher</div>
+    <div class="contact-bar">
+      <span>Budapest / Remote (Global Nomad)</span>
+      <span>&bull;</span>
+      <span><a href="mailto:cabotage@pm.me">cabotage@pm.me</a></span>
+      <span>&bull;</span>
+      <span><a href="https://peterl.dev">peterl.dev</a></span>
+      <span>&bull;</span>
+      <span><a href="https://axiomquant.org">axiomquant.org</a></span>
+      <span>&bull;</span>
+      <span><a href="https://github.com/peterlodri-sec">github.com/peterlodri-sec</a></span>
+      <span>&bull;</span>
+      <span><a href="https://bsky.app/profile/0xp3t3rl.bsky.social">@0xp3t3rl.bsky.social</a></span>
+    </div>
+  </div>
+
+  <h2>Target Focus &amp; Profile Summary</h2>
+  <div class="summary-text">
+    Independent AI researcher and systems architect specializing in <strong>empirical multi-agent verification</strong>, <strong>mathematical AI safety bounds</strong>, and <strong>low-bit neural consensus distillation</strong>. Proven track record of architecting zero-reward-hacking evaluation harnesses, deriving exact geometric-mean consensus equivalences, and deploying low-latency edge models with formal spectral guarantees. Deeply aligned with Coefficient Giving's mission to address catastrophic risks from transformative AI through rigorous epistemic foundations, open-source verification tools, and pragmatic systems engineering.
+  </div>
+
+  <h2>Selected Research &amp; Open Systems Contributions</h2>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">KOMPRESS v2: Geometric-Mean Consensus Distillation &amp; Spectral Rigidity</span>
+      <span class="entry-date">2025 &ndash; 2026</span>
+    </div>
+    <div class="entry-role">Lead Author &amp; Architect &middot; <a href="https://kompress.vaked.dev/paper/main_v2.pdf">kompress.vaked.dev/paper/main_v2.pdf</a> &middot; <a href="https://huggingface.co/PeetPedro/quantal-classroom-1.6">HF Model</a></div>
+    <ul>
+      <li><strong>Consensus Equivalence Theorem:</strong> Proved that arithmetic logit averaging across teacher councils induces exact normalized geometric-mean probability consensus $\bar{p} \propto \prod p_k^{1/K}$, and that minimizing mean reverse KL to teachers is optimization-equivalent to minimizing reverse KL against $\bar{p}$.</li>
+      <li><strong>Spectral Rigidity &amp; Null Models:</strong> Formulated Marchenko-Pastur spectral edges ($\lambda_\pm = p(1 \pm \sqrt{\gamma})^2$) for ternary $\{-1, 0, +1\}$ BitLinear weight matrices, establishing restricted lower/upper singular bounds ($0 < c \le \|Wx\| \le C$) on active semantic subspaces to prevent dimensional collapse.</li>
+      <li><strong>Empirical Results:</strong> Improved edge student validation cross-entropy from $2.1369$ to $\mathbf{1.6120}$, reduced memory from $3.4\text{ GB}$ to $\mathbf{0.42\text{ GB}}$ ($8.1\times$), and accelerated Apple Silicon inference to $\mathbf{118\text{ tokens/s}}$ ($4.2\times$).</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">DeepSiper Enthea: Worktree-Isolated Multi-Agent Safety &amp; AST Verifier</span>
+      <span class="entry-date">2025 &ndash; 2026</span>
+    </div>
+    <div class="entry-role">Principal Architect &middot; <a href="https://github.com/8b-is/deepsiper-enthea">github.com/8b-is/deepsiper-enthea</a></div>
+    <ul>
+      <li><strong>Zero Reward-Hacking Verification:</strong> Designed a multi-agent evaluation harness coordinating parallel reasoners across isolated Git worktrees, replacing textual proxy metrics with an explicit 4-predicate admissibility contract: $\mathcal{A}(c) = \mathcal{P}(c) \land \mathcal{S}(c) \land \mathcal{T}(c) \land \mathcal{G}(c)$ (Parse, AST Invariant, Test Suite, Git Sandbox).</li>
+      <li><strong>Empirical Benchmark Sweep:</strong> Achieved $100.0\%$ pass rate across 5 algorithmic test suites (AST logic, $O(\log N)$ matrix power, 256-bit XOR Kademlia distance, BitLinear quantization), demonstrating zero adversarial escapes under the verifier suite.</li>
+      <li><strong>Modular Cordis Microkernel:</strong> Engineered 51 independent packages supporting automated subagent dispatch, live AST inspections, and deterministic replay traces.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">Axiom Quant: Pure Mathematics, Random Matrices &amp; Stochastic Process Substrate</span>
+      <span class="entry-date">2024 &ndash; 2026</span>
+    </div>
+    <div class="entry-role">Founding Researcher &middot; <a href="https://axiomquant.org">axiomquant.org</a> &middot; 86 Monographs</div>
+    <ul>
+      <li><strong>Mathematical AI Safety:</strong> Authored extensive monographs on Erdős threshold phase transitions, Schramm-Loewner Evolution (SLE), Tracy-Widom edge distributions, and stochastic repair bounds in autonomous systems.</li>
+      <li><strong>Parametricity &amp; Commitment Honesty:</strong> Applied Reynolds' relational parametricity and Wadler's free theorems to prove that polymorphic agent skill delivery ($\text{RESOLVE} \cong \texttt{head}$) can operate at zero standing prompt token overhead, eliminating architectural commitment leakage.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">EtherHive &amp; Honest-IRC: Sovereign Post-Quantum Cryptographic Messaging</span>
+      <span class="entry-date">2024 &ndash; 2026</span>
+    </div>
+    <div class="entry-role">Lead Cryptographic Engineer &middot; <a href="https://etherhive.vaked.dev">etherhive.vaked.dev</a> &middot; <a href="https://github.com/peterlodri-sec/etherhive">github.com/peterlodri-sec/etherhive</a></div>
+    <ul>
+      <li><strong>Post-Quantum Primitives:</strong> Implemented FIPS 203/204/205 standards (ML-KEM-1024 / Kyber-1024, ML-DSA-87 / Dilithium, SLH-DSA) integrated with X25519 Double Ratchet forward secrecy.</li>
+      <li><strong>Decentralized Epistemic Identity:</strong> Pioneered <code>honesty-auth</code>, deriving sovereign cryptographic secrets from relational invariants rather than centralized KYC or OAuth authorities.</li>
+    </ul>
+  </div>
+
+  <h2>Technical Core Competencies</h2>
+  <div class="skills-grid">
+    <div class="skill-cat">AI Safety &amp; Eval:</div>
+    <div class="skill-list">Multi-agent worktree harnesses, AST invariant validation, reward-hacking prevention, mechanistic interpretability, empirical incident deconstruction, free-theorem verification.</div>
+    
+    <div class="skill-cat">Modeling &amp; Distill:</div>
+    <div class="skill-list">Geometric-mean logit consensus, teacher council ensembles, BitNet b1.58 ternary quantization ($\{-1, 0, +1\}$), PyTorch, MLX (Apple Silicon Metal kernels), Hugging Face Hub.</div>
+    
+    <div class="skill-cat">Mathematics:</div>
+    <div class="skill-list">Random matrix theory (Marchenko-Pastur, Tracy-Widom), stochastic calculus, spectral graph theory, Hawkes processes, Reynolds parametricity, category-theoretic semantics.</div>
+    
+    <div class="skill-cat">Systems &amp; Infra:</div>
+    <div class="skill-list">Rust (async, zero-copy, SIMD, no-GIL), Python 3.13 JIT, TypeScript, Cloudflare Workers/Durable Objects, Kademlia DHT, Git worktrees, Linux eBPF/memfd.</div>
+  </div>
+
+  <h2>Education &amp; Philosophical Foundations</h2>
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">Self-Directed Higher Studies in Applied Mathematics &amp; Computer Science</span>
+      <span class="entry-date">Continuous</span>
+    </div>
+    <div class="summary-text" style="margin-top: 0.15rem;">
+      Deep study in random matrix theory, stochastic differential equations, abstract algebra, and category theory. Epistemic focus on Cartesian skepticism, falsifiability (Popper/Lakatos), and the causal coupling of artificial cognition to physical substrates.
+    </div>
+  </div>
+
+</body>
+</html>

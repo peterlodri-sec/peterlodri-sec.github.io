@@ -1410,4 +1410,30 @@ class Component extends DCLogic {
     });
   })();
 </script>
+<!-- Ko-fi Floating Widget -->
+<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+<script>
+  try {
+    if (typeof kofiWidgetOverlay !== 'undefined') {
+      kofiWidgetOverlay.draw('peterlodri', {
+        'type': 'floating-chat',
+        'floating-chat.donateButton.text': 'Support me',
+        'floating-chat.donateButton.background-color': '#ff38b8',
+        'floating-chat.donateButton.text-color': '#fff'
+      });
+    } else if (typeof window !== 'undefined') {
+      window.addEventListener('DOMContentLoaded', function() {
+        if (typeof kofiWidgetOverlay !== 'undefined') {
+          kofiWidgetOverlay.draw('peterlodri', {
+            'type': 'floating-chat',
+            'floating-chat.donateButton.text': 'Support me',
+            'floating-chat.donateButton.background-color': '#ff38b8',
+            'floating-chat.donateButton.text-color': '#fff'
+          });
+        }
+      });
+    }
+  } catch (e) {}
+</script>
+
 </body></html>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="40" viewBox="0 0 400 40" role="img" aria-label="Codewars Dark Badge (large) — peterlodri-sec">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#222327"/>
+      <stop offset="100%" stop-color="#16171b"/>
+    </linearGradient>
+    <linearGradient id="kyu" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ecb613"/>
+      <stop offset="100%" stop-color="#f7cf46"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="40" rx="6" fill="url(#bg)" stroke="#34363c" stroke-width="1"/>
+  <!-- Codewars Red Seal -->
+  <rect x="0" y="0" width="42" height="40" rx="6" fill="#b1361e"/>
+  <rect x="36" y="0" width="6" height="40" fill="#b1361e"/>
+  <g transform="translate(21,20)" fill="none" stroke="#ffffff" stroke-width="1.8">
+    <polygon points="0,-11 9.5,-5.5 9.5,5.5 0,11 -9.5,5.5 -9.5,-5.5"/>
+    <path d="M-5,-3 L0,-7 L5,-3 M-5,3 L0,7 L5,3 M-6,0 L6,0"/>
+  </g>
+  <!-- Kyu Hexagon Shield -->
+  <g transform="translate(54,8)">
+    <polygon points="8,0 44,0 52,12 44,24 8,24 0,12" fill="#18191d" stroke="url(#kyu)" stroke-width="1.6"/>
+    <text x="26" y="16" text-anchor="middle" fill="#ecb613" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5" font-weight="700">1 kyu</text>
+  </g>
+  <!-- Username & Honor -->
+  <text x="118" y="17" fill="#efefef" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="700" letter-spacing="0.3">peterlodri-sec</text>
+  <text x="118" y="31" fill="#999c9f" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5">8b-is · Rust · Zig · Idris 2 · C · Go · Perl</text>
+  <!-- Honor Pill -->
+  <rect x="322" y="9" width="68" height="22" rx="4" fill="#111215" stroke="#2f3137" stroke-width="1"/>
+  <text x="356" y="24" text-anchor="middle" fill="#00e5ff" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="700">★ 1,729</text>
+</svg>

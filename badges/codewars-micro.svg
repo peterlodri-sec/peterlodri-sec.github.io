@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="20" viewBox="0 0 144 20" role="img" aria-label="Codewars Dark Badge (micro) — peterlodri-sec">
+  <rect width="144" height="20" rx="3" fill="#1e1f23" stroke="#34363c" stroke-width="1"/>
+  <rect width="20" height="20" rx="3" fill="#b1361e"/>
+  <rect x="17" width="3" height="20" fill="#b1361e"/>
+  <polygon points="10,4 15,7 15,13 10,16 5,13 5,7" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+  <text x="44" y="13.5" text-anchor="middle" fill="#ecb613" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700">1 kyu</text>
+  <line x1="68" y1="3" x2="68" y2="17" stroke="#34363c" stroke-width="1"/>
+  <text x="106" y="13.5" text-anchor="middle" fill="#efefef" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700">1,729</text>
+</svg>

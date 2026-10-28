@@ -1,1017 +1,1597 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Péter Lódri — Systems Architect &amp; Sovereign Loops</title>
-  <meta name="description" content="Péter Lódri — Systems architect, open-source engineer, and builder of continuous loops. Founder of 8b-is Family Research, ZENO Sovereign Neo-Bank, AxiomQuant, and the vaked.dev constellation.">
-  <meta name="keywords" content="Peter Lodri, Peter Lódri, Systems Architect, 8b-is, ZENO, vaked.dev, AxiomQuant, pocoo, teamLab">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Péter Lódri — Interactive Engineer, Systems Architect &amp; Sovereign Loops</title>
+  <meta name="description" content="Péter Lódri — Interactive engineer (Unity / 3D), creative technologist, and systems architect. Real-time graphics, vector synthesis, upz 64B LitanyWire, ZENO Sovereign Neo-Bank, AxiomQuant, and the 8b-is / vaked.dev constellation.">
+  <meta name="keywords" content="Peter Lodri, Péter Lódri, peterlodri-sec, teamLab, Interactive Engineer, Systems Architect, 8b-is, upz, wupz, spherepop-kernel, polar-densification, ZENO, vaked.dev, AxiomQuant">
   <meta name="author" content="Péter Lódri">
+  <meta name="theme-color" content="#04060a">
 
   <!-- OpenGraph & Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://peterl.dev/">
-  <meta property="og:title" content="Péter Lódri — Systems Architect &amp; Sovereign Loops">
-  <meta property="og:description" content="Builder of loops. 8b-is Family Research, ZENO Sovereign Neo-Bank, AxiomQuant, and the vaked.dev constellation. Tatabánya ➔ Tokyo.">
+  <meta property="og:title" content="Péter Lódri — Interactive Engineer (Unity / 3D) &amp; Sovereign Systems Architect">
+  <meta property="og:description" content="I make sound → seen, and structure → felt. Real-time graphics, vector synthesis, upz 64B LitanyWire, ZENO, and the 8b-is / vaked.dev constellation.">
   <meta property="og:image" content="https://peterl.dev/assets/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Péter Lódri — Systems Architect &amp; Sovereign Loops">
-  <meta name="twitter:description" content="Builder of loops. 8b-is Family Research, ZENO Sovereign Neo-Bank, AxiomQuant, and the vaked.dev constellation.">
+  <meta name="twitter:title" content="Péter Lódri — Interactive Engineer &amp; Sovereign Loops">
+  <meta name="twitter:description" content="Real-time graphics · Unity/3D · vector synthesis · upz 64B LitanyWire · ZENO · 8b-is family research.">
   <meta name="twitter:image" content="https://peterl.dev/assets/og-image.png">
 
-  <!-- Icons -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
   <style>
     :root {
-      --bg: #07080b;
-      --bg-surface: #0e111a;
-      --bg-card: rgba(18, 22, 34, 0.75);
-      --bg-card-hover: rgba(26, 32, 50, 0.9);
-      --text: #e6e8f0;
-      --text-muted: #8b92a5;
-      --gold: #e8b05c;
-      --gold-glow: rgba(232, 176, 92, 0.25);
-      --teal: #62e6c9;
-      --teal-glow: rgba(98, 230, 201, 0.25);
+      --bg: #04060a;
+      --bg-panel: rgba(8, 10, 20, 0.64);
+      --bg-panel-hover: rgba(14, 18, 34, 0.84);
+      --ink: #eef0ff;
+      --dim: rgba(215, 208, 245, 0.82);
+      --muted: rgba(165, 160, 205, 0.65);
+      --line: rgba(255, 255, 255, 0.12);
+      --line-bright: rgba(98, 230, 201, 0.55);
+      --cyan: #62e6c9;
       --violet: #b48bff;
-      --rose: #f7a8b8;
-      --border: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(232, 176, 92, 0.35);
-      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-      --font-mono: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --pink: #ff9ad5;
+      --phos: #39ff14;
+      --gold: #e8b05c;
+      --rose: #ff6b8b;
+      --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+      --sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html {
-      scroll-behavior: smooth;
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: var(--font-sans);
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); color: var(--ink); }
     body {
-      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.62;
       overflow-x: hidden;
-      line-height: 1.6;
-      position: relative;
-      background: radial-gradient(circle at 50% 0%, #101524 0%, #07080b 70%);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Background Canvas */
-    #bg-canvas {
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -120px;
+      left: 16px;
+      z-index: 9999;
+      background: var(--cyan);
+      color: #04060a;
+      padding: 10px 16px;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus-visible { top: 16px; outline: 3px solid var(--phos); outline-offset: 2px; }
+
+    /* Fullscreen teamLab Interactive Canvas & Iridescent Grain Veil */
+    #fx {
       position: fixed;
       inset: 0;
       width: 100%;
       height: 100%;
-      pointer-events: none;
       z-index: 0;
-      opacity: 0.6;
+      display: block;
+      pointer-events: none;
+    }
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.44;
+      background:
+        radial-gradient(100% 60% at 50% -10%, rgba(255, 0, 128, 0.13), transparent 55%),
+        radial-gradient(90% 70% at 100% 40%, rgba(0, 240, 255, 0.11), transparent 55%),
+        radial-gradient(80% 60% at 0% 80%, rgba(57, 255, 20, 0.09), transparent 50%),
+        radial-gradient(90% 90% at 50% 120%, rgba(180, 0, 255, 0.13), transparent 60%);
     }
 
-    /* Outer Wrapper */
-    .wrap {
-      position: relative;
-      z-index: 1;
-      max-width: 1140px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* Header Nav */
-    header {
+    /* Top Sticky Glass HUD Bar */
+    .top-hud {
       position: sticky;
       top: 0;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      background: rgba(7, 8, 11, 0.75);
-      border-bottom: 1px solid var(--border);
       z-index: 100;
-      transition: border-color 0.3s ease;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background: rgba(4, 6, 10, 0.72);
+      border-bottom: 1px solid var(--line);
     }
-
-    .nav-inner {
+    .top-hud-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 12px clamp(18px, 4vw, 42px);
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
-      padding: 0.9rem 0;
+      gap: 14px;
+      flex-wrap: wrap;
     }
-
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 10px;
       text-decoration: none;
-      color: #fff;
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 13px;
       font-weight: 700;
-      letter-spacing: 0.05em;
-      font-size: 1.05rem;
+      letter-spacing: 0.14em;
     }
-
-    .brand-mark {
+    .brand-orb {
       width: 28px;
       height: 28px;
       border-radius: 8px;
-      background: linear-gradient(135deg, var(--gold), var(--teal));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #07080b;
+      background: linear-gradient(135deg, var(--phos), var(--cyan), var(--violet), var(--pink));
+      display: grid;
+      place-items: center;
+      color: #04060a;
       font-weight: 900;
-      font-size: 0.85rem;
-      box-shadow: 0 0 12px var(--gold-glow);
+      font-size: 13px;
+      box-shadow: 0 0 16px rgba(98, 230, 201, 0.45);
     }
-
-    .nav-links {
+    .hud-nav {
       display: flex;
       align-items: center;
-      gap: 1.25rem;
+      gap: 14px;
+      flex-wrap: wrap;
     }
-
-    .nav-links a {
-      color: var(--text-muted);
+    .hud-nav a {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dim);
       text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 500;
       transition: color 0.2s ease;
     }
+    .hud-nav a:hover { color: var(--cyan); }
 
-    .nav-links a:hover {
-      color: var(--gold);
-    }
-
-    .btn-audio {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 0.4rem 0.8rem;
-      border-radius: var(--radius-sm);
-      font-size: 0.8rem;
-      font-family: var(--font-mono);
-      cursor: pointer;
+    .hud-controls {
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .hud-btn {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 6px 10px;
+      cursor: pointer;
       transition: all 0.2s ease;
     }
-
-    .btn-audio:hover {
-      border-color: var(--gold);
-      color: #fff;
+    .hud-btn:hover {
+      border-color: var(--cyan);
+      color: #eafcff;
+      box-shadow: 0 0 12px rgba(98, 230, 201, 0.25);
+    }
+    .hud-btn.active {
+      border-color: var(--phos);
+      color: var(--phos);
+      background: rgba(57, 255, 20, 0.11);
+      box-shadow: 0 0 16px rgba(57, 255, 20, 0.35);
     }
 
-    .btn-audio.active {
-      border-color: var(--gold);
-      color: var(--gold);
-      background: rgba(232, 176, 92, 0.12);
-      box-shadow: 0 0 10px var(--gold-glow);
+    /* Main Content Container */
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 clamp(18px, 4vw, 42px);
     }
 
-    /* Hero */
+    /* Hero Section */
     .hero {
-      padding: 5rem 0 3.5rem;
-      text-align: left;
+      min-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      padding-block: 68px 48px;
     }
-
-    .hero-badge {
+    .kicker {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink), var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      background: rgba(98, 230, 201, 0.1);
-      border: 1px solid rgba(98, 230, 201, 0.3);
-      color: var(--teal);
-      padding: 0.35rem 0.85rem;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-family: var(--font-mono);
-      margin-bottom: 1.5rem;
+      gap: 10px;
     }
-
-    .hero-badge .dot {
-      width: 6px;
-      height: 6px;
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
-      background: var(--teal);
-      box-shadow: 0 0 8px var(--teal);
+      background: var(--phos);
+      box-shadow: 0 0 10px var(--phos);
       animation: pulse 2s infinite;
+      flex-shrink: 0;
     }
-
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.85); }
+      50% { opacity: 0.4; transform: scale(0.82); }
     }
 
-    .hero h1 {
-      font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+    h1 {
+      font-size: clamp(44px, 8.8vw, 92px);
+      line-height: 0.96;
+      letter-spacing: -0.025em;
       font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin-bottom: 1.2rem;
-      background: linear-gradient(135deg, #ffffff 40%, var(--gold) 90%);
+    }
+    h1 .accent {
+      background: linear-gradient(135deg, #39ff14, #00f0ff, #ff007f, #ffe600);
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 0 14px rgba(98, 230, 201, 0.5));
+    }
+    .role {
+      font-size: clamp(17px, 2.8vw, 23px);
+      color: rgba(238, 235, 255, 0.95);
+      max-width: 44ch;
+      font-weight: 500;
+    }
+    .role .sep { color: var(--violet); font-weight: 700; }
+    .lede {
+      font-family: var(--mono);
+      font-size: 13.2px;
+      color: var(--dim);
+      max-width: 68ch;
+      line-height: 1.85;
     }
 
-    .hero p.lead {
-      font-size: clamp(1.1rem, 2vw, 1.35rem);
-      color: var(--text-muted);
-      max-width: 740px;
-      margin-bottom: 2rem;
-      font-weight: 400;
-    }
-
-    .hero p.lead strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    /* Action Pills */
-    .action-pills {
+    /* Live Telemetry Pill Strip */
+    .telemetry-strip {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 2.5rem;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--dim);
     }
-
-    .pill-primary {
-      background: linear-gradient(135deg, #e8b05c, #d4953c);
-      color: #07080b;
-      font-weight: 700;
-      padding: 0.65rem 1.25rem;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      font-size: 0.9rem;
+    .t-chip {
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(10, 12, 22, 0.65);
+      backdrop-filter: blur(8px);
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 16px rgba(232, 176, 92, 0.3);
+      gap: 6px;
     }
+    .t-chip b { color: var(--cyan); font-weight: 600; }
+    .t-chip .phos { color: var(--phos); }
+    .t-chip .gold { color: var(--gold); }
 
-    .pill-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 22px rgba(232, 176, 92, 0.45);
-    }
-
-    .pill-secondary {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      color: var(--text);
-      font-weight: 600;
-      padding: 0.65rem 1.15rem;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      font-size: 0.9rem;
-      display: inline-flex;
+    /* Codewars Live SVG Badge Bar */
+    .codewars-bar {
+      display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      gap: 0.5rem;
-      transition: all 0.2s ease;
-    }
-
-    .pill-secondary:hover {
-      border-color: var(--teal);
-      color: var(--teal);
-      background: rgba(98, 230, 201, 0.08);
-      transform: translateY(-2px);
-    }
-
-    /* Terminal Box */
-    .terminal-card {
-      background: #090c14;
-      border: 1px solid var(--border);
+      gap: 12px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
       border-radius: var(--radius-md);
-      padding: 1rem 1.25rem;
+      background: rgba(8, 10, 20, 0.66);
+      backdrop-filter: blur(12px);
+      max-width: fit-content;
+    }
+    .codewars-bar .cw-label {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .codewars-bar a {
+      display: inline-flex;
+      align-items: center;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+    .codewars-bar a:hover {
+      transform: translateY(-2px);
+      filter: drop-shadow(0 0 10px rgba(232, 176, 92, 0.45));
+    }
+    .codewars-bar img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    /* CTA Buttons */
+    .cta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .btn {
+      font-family: var(--mono);
+      text-decoration: none;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 11px 17px;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      background: rgba(255, 255, 255, 0.035);
+      backdrop-filter: blur(8px);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .btn:hover {
+      border-color: var(--cyan);
+      color: #eafcff;
+      background: rgba(98, 230, 201, 0.11);
+      box-shadow: 0 0 16px rgba(98, 230, 201, 0.28);
+      transform: translateY(-2px);
+    }
+    .btn.p {
+      border-color: rgba(57, 255, 20, 0.5);
+      color: #eafff0;
+      background: rgba(57, 255, 20, 0.08);
+    }
+    .btn.p:hover {
+      border-color: var(--phos);
+      background: rgba(57, 255, 20, 0.16);
+      box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+    }
+    .btn.gold {
+      border-color: rgba(232, 176, 92, 0.55);
+      color: #fff6e0;
+      background: rgba(232, 176, 92, 0.1);
+    }
+    .btn.gold:hover {
+      border-color: var(--gold);
+      background: rgba(232, 176, 92, 0.2);
+      box-shadow: 0 0 20px rgba(232, 176, 92, 0.4);
+    }
+
+    /* Terminal Quick-Connect Bar */
+    .terminal-card {
+      background: rgba(5, 7, 14, 0.78);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 11px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      max-width: 680px;
-      margin-bottom: 4rem;
-      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.8);
+      gap: 12px;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      max-width: 720px;
+      backdrop-filter: blur(12px);
     }
-
     .terminal-code {
-      color: var(--teal);
+      color: var(--cyan);
       overflow-x: auto;
       white-space: nowrap;
     }
+    .terminal-code .prompt { color: var(--phos); margin-right: 8px; }
 
-    .terminal-code span.prompt {
-      color: var(--gold);
-      margin-right: 0.5rem;
+    /* Sections */
+    section { padding-block: clamp(44px, 7vw, 84px); }
+    .sec-h {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
     }
-
-    .btn-copy {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 0.35rem 0.75rem;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      cursor: pointer;
-      font-family: var(--font-mono);
-      transition: all 0.2s ease;
-      flex-shrink: 0;
-    }
-
-    .btn-copy:hover {
-      background: rgba(255, 255, 255, 0.15);
-      color: #fff;
-    }
-
-    /* Section Headings */
-    .section-title {
-      font-size: 1.6rem;
+    .sec-h h2 {
+      font-size: clamp(22px, 3.8vw, 34px);
+      letter-spacing: -0.015em;
       font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.4rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
+    }
+    .sec-h .n {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--violet);
+      letter-spacing: 0.22em;
+    }
+    .sec-sub {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--dim);
+      margin-bottom: 26px;
+      max-width: 74ch;
     }
 
-    .section-sub {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 2rem;
-    }
-
-    /* Card Grid */
-    .grid {
+    /* Interactive 3D-Tilt Work Grid */
+    .works {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 4.5rem;
+      gap: 16px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 720px) {
+      .works { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1040px) {
+      .works.cols-3 { grid-template-columns: repeat(3, 1fr); }
     }
 
-    .card {
-      background: var(--bg-card);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
+    .work {
+      --mx: 50%;
+      --my: 50%;
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px 22px;
+      background:
+        radial-gradient(360px circle at var(--mx) var(--my), rgba(98, 230, 201, 0.13), transparent 65%),
+        var(--bg-panel);
       text-decoration: none;
       color: inherit;
-      transition: all 0.25s ease;
-      position: relative;
+      transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
       overflow: hidden;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
     }
-
-    .card::before {
+    .work:hover {
+      transform: translateY(-4px);
+      border-color: var(--line-bright);
+      background:
+        radial-gradient(400px circle at var(--mx) var(--my), rgba(98, 230, 201, 0.18), transparent 65%),
+        var(--bg-panel-hover);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5), 0 0 22px rgba(98, 230, 201, 0.14);
+    }
+    .work::after {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      inset: auto 0 0 0;
       height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      background: linear-gradient(90deg, #ff007f, #ff9900, #39ff14, #00f0ff, #b48bff);
       opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.25s ease;
     }
+    .work:hover::after { opacity: 0.95; }
 
-    .card:hover {
-      border-color: var(--border-hover);
-      background: var(--bg-card-hover);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(232, 176, 92, 0.12);
-    }
-
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .card-top {
+    .work-top {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 1rem;
-    }
-
-    .card-badge {
-      font-size: 0.7rem;
-      font-family: var(--font-mono);
-      font-weight: 600;
-      padding: 0.25rem 0.55rem;
-      border-radius: 4px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-    }
-
-    .badge-zeno { color: var(--gold); border-color: rgba(232, 176, 92, 0.3); background: rgba(232, 176, 92, 0.1); }
-    .badge-teamlab { color: var(--teal); border-color: rgba(98, 230, 201, 0.3); background: rgba(98, 230, 201, 0.1); }
-    .badge-math { color: var(--violet); border-color: rgba(180, 139, 255, 0.3); background: rgba(180, 139, 255, 0.1); }
-    .badge-family { color: var(--rose); border-color: rgba(247, 168, 184, 0.3); background: rgba(247, 168, 184, 0.1); }
-
-    .card h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: #fff;
-      display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 8px;
+      margin-bottom: 6px;
     }
-
-    .card p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-      margin-bottom: 1.25rem;
+    .work .tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cyan);
+    }
+    .work .glyph {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--gold);
+    }
+    .work h3 {
+      font-size: 18.5px;
+      margin: 4px 0 8px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .work p {
+      font-size: 13.5px;
+      color: rgba(228, 224, 255, 0.88);
+      line-height: 1.65;
       flex: 1;
     }
-
-    .card-footer {
+    .work .url {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--violet);
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      font-size: 0.8rem;
-      font-family: var(--font-mono);
-      color: var(--gold);
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      padding-top: 0.8rem;
+      align-items: center;
     }
 
-    .card-footer .arrow {
-      transition: transform 0.2s ease;
-    }
-
-    .card:hover .card-footer .arrow {
-      transform: translateX(4px);
-    }
-
-    /* Philosophy / Genesis Banner */
-    .philosophy-banner {
-      background: linear-gradient(135deg, rgba(232, 176, 92, 0.07) 0%, rgba(98, 230, 201, 0.07) 100%);
-      border: 1px solid rgba(232, 176, 92, 0.25);
+    /* Interactive 64B LitanyWire & Ternary Inspector Panel */
+    .lab-panel {
+      border: 1px solid var(--line);
       border-radius: var(--radius-lg);
-      padding: 2.5rem 2rem;
-      margin-bottom: 4.5rem;
-      position: relative;
+      padding: clamp(20px, 3.5vw, 30px);
+      background: rgba(8, 10, 22, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
-
-    .philosophy-banner h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--gold);
-      margin-bottom: 0.75rem;
-    }
-
-    .philosophy-banner blockquote {
-      font-size: 1.05rem;
-      color: #e2e4ee;
-      font-style: italic;
-      margin-bottom: 1.5rem;
-      border-left: 3px solid var(--gold);
-      padding-left: 1rem;
-    }
-
-    .principles-grid {
+    .lab-controls {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .lab-row {
+      display: grid;
+      grid-template-columns: 110px 1fr 74px;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--dim);
+    }
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 4px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--violet), var(--cyan), var(--phos));
+      outline: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 12px var(--cyan);
+      cursor: pointer;
+    }
+    .wire-dump {
+      font-family: var(--mono);
+      font-size: 11.8px;
+      line-height: 1.68;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: rgba(2, 4, 10, 0.84);
+      color: var(--cyan);
+      overflow-x: auto;
+      white-space: pre;
+      margin-top: 12px;
     }
 
-    .principle-item {
-      background: rgba(7, 8, 11, 0.6);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 1rem;
+    /* Skills Grid */
+    .skills {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 720px) {
+      .skills { grid-template-columns: 1fr 1fr; }
+    }
+    .skill {
+      border-left: 2px solid var(--violet);
+      padding: 10px 16px;
+      background: rgba(10, 12, 24, 0.52);
+      border-radius: 0 10px 10px 0;
+      backdrop-filter: blur(8px);
+    }
+    .skill b {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .skill p {
+      font-size: 13.5px;
+      color: rgba(228, 224, 255, 0.88);
+      line-height: 1.62;
     }
 
-    .principle-title {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--teal);
-      margin-bottom: 0.35rem;
-      font-family: var(--font-mono);
-    }
-
-    .principle-desc {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      line-height: 1.45;
-    }
-
-    /* Family Dedication */
-    .family-dedication {
-      background: radial-gradient(circle at 50% 50%, rgba(247, 168, 184, 0.08) 0%, rgba(7, 8, 11, 0.8) 100%);
-      border: 1px solid rgba(247, 168, 184, 0.3);
+    /* Why teamLab + Genesis Philosophy Box */
+    .why-box {
+      padding: clamp(22px, 3.5vw, 32px);
+      border: 1px solid var(--line);
       border-radius: var(--radius-lg);
-      padding: 2rem;
-      margin-bottom: 4.5rem;
+      background: rgba(10, 12, 24, 0.64);
+      font-size: 15px;
+      line-height: 1.85;
+      backdrop-filter: blur(12px);
+    }
+    .why-box .q { color: var(--phos); font-weight: 600; }
+    .tern { color: var(--violet); font-family: var(--mono); }
+
+    /* Family Dedication Banner */
+    .family-box {
+      margin-top: 28px;
+      padding: clamp(22px, 3.5vw, 32px);
+      border: 1px solid rgba(255, 154, 213, 0.35);
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at 50% 0%, rgba(255, 107, 139, 0.12), rgba(8, 10, 20, 0.76) 75%);
+      backdrop-filter: blur(12px);
       text-align: center;
     }
-
-    .family-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--rose);
-      margin-bottom: 0.6rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
+    .family-box h3 {
+      font-size: 20px;
+      color: var(--pink);
+      margin-bottom: 8px;
     }
-
-    .family-desc {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      max-width: 650px;
-      margin: 0 auto 1.5rem;
-      line-height: 1.6;
-    }
-
     .family-streams {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 14px;
       flex-wrap: wrap;
+      margin-top: 16px;
     }
-
     .stream-pill {
-      background: rgba(7, 8, 11, 0.7);
-      border: 1px solid rgba(247, 168, 184, 0.25);
-      border-radius: var(--radius-sm);
-      padding: 0.6rem 1rem;
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      display: flex;
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(232, 176, 92, 0.35);
+      background: rgba(4, 6, 12, 0.75);
+      display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 8px;
     }
-
-    .stream-pill .rate {
-      color: var(--gold);
-      font-weight: 700;
-    }
+    .stream-pill .rate { color: var(--gold); font-weight: 700; }
 
     /* Footer */
     footer {
-      border-top: 1px solid var(--border);
-      padding: 3rem 0;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.85rem;
+      padding-block: 56px 76px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--dim);
+      line-height: 2;
+      border-top: 1px solid var(--line);
+      margin-top: 40px;
     }
+    footer a { color: var(--violet); text-decoration: none; }
+    footer a:hover { color: var(--cyan); text-decoration: underline; }
 
-    .footer-constellation {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.75rem 1.25rem;
-      margin-bottom: 1.5rem;
-      font-size: 0.82rem;
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
+    .reveal.in { opacity: 1; transform: none; }
 
-    .footer-constellation a {
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    .footer-constellation a:hover {
-      color: var(--gold);
-    }
-
-    .footer-seal {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      color: #616679;
-    }
-
-    /* Responsive */
-    @media (max-width: 640px) {
-      .hero { padding: 3.5rem 0 2rem; }
-      .nav-links a:not(.nav-primary) { display: none; }
-      .action-pills { flex-direction: column; }
+    @media (max-width: 680px) {
+      .lab-row { grid-template-columns: 1fr; gap: 4px; }
       .terminal-card { flex-direction: column; align-items: flex-start; }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1 !important; transform: none !important; }
+    }
   </style>
+  <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
+  <a href="#works" class="skip-link">Skip to selected work</a>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
 
-  <canvas id="bg-canvas"></canvas>
-
-  <header>
-    <div class="wrap nav-inner">
+  <!-- Top Sticky Interactive HUD -->
+  <header class="top-hud">
+    <div class="top-hud-inner">
       <a href="https://peterl.dev/" class="brand">
-        <div class="brand-mark">P</div>
-        <span>peterl.dev</span>
+        <span class="brand-orb">P</span>
+        <span>PETERL.DEV · OMNI</span>
       </a>
 
-      <nav class="nav-links">
-        <a href="#projects" class="nav-primary">Projects</a>
-        <a href="#philosophy">Philosophy</a>
+      <nav class="hud-nav" aria-label="Site navigation">
+        <a href="#works">Works</a>
+        <a href="#litany-lab">64B Lab</a>
+        <a href="#skills">Craft</a>
+        <a href="#teamlab">teamLab</a>
         <a href="https://pocoo.vaked.dev/" target="_blank" rel="noopener noreferrer">Writing</a>
-        <a href="resume.html">Resume</a>
-        <a href="https://github.com/peterlodri-sec" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <button id="btn-sound" class="btn-audio" title="Toggle 432 Hz Solfeggio soundscape">
-          <span>🔊</span>
-          <span id="sound-label">432 Hz</span>
-        </button>
+        <a href="resume.html">Résumé</a>
       </nav>
+
+      <div class="hud-controls" role="group" aria-label="Interactive field and audio controls">
+        <button type="button" class="hud-btn active" data-field-mode="bloom" title="Mode 1: teamLab Chrysanthemum & Flower of Life">01·Bloom</button>
+        <button type="button" class="hud-btn" data-field-mode="lissajous" title="Mode 2: Lissajoverse XY Vector Oscilloscope">02·Lissajous</button>
+        <button type="button" class="hud-btn" data-field-mode="polar" title="Mode 3: Sony Polar Lattice Z_{2^32} CORDIC">03·Polar</button>
+        <button type="button" class="hud-btn" id="btn-432" title="Toggle 432 Hz Solfeggio Interactive Synth">432 Hz</button>
+        <button type="button" class="hud-btn" id="btn-ost" title="Toggle The Residue of Proof v2 Ambient OST">♪ OST</button>
+      </div>
     </div>
   </header>
 
-  <main class="wrap">
-
+  <div class="wrap">
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-badge">
-        <span class="dot"></span>
-        <span>Tatabánya ➔ Tokyo · 8b-is Family Research &lt;3</span>
+      <div class="kicker">
+        <span class="pulse-dot"></span>
+        <span>インタラクティブエンジニア (Unity / 3D) · Systems Architect · Tatabánya ➔ Tokyo · 8b-is &lt;3</span>
       </div>
 
-      <h1>Péter Lódri</h1>
-      <p class="lead">
-        <strong>Systems Architect &amp; Sovereign Loop Engineer.</strong><br>
-        Building zero-latency agentic reasoners, proof-of-contribution neo-banking, and the vaked.dev constellation with fine touch from within.
+      <h1>Péter L<span class="accent">ó</span>dri</h1>
+
+      <p class="role">
+        I make sound <span class="sep">→</span> seen, and structure <span class="sep">→</span> felt —
+        real-time 3D/WebGL graphics, vector synthesis, zero-float <span class="sep">p/q</span> kernels, and sovereign loops.
       </p>
 
-      <div class="action-pills">
-        <a href="https://zeno.vaked.dev/" class="pill-primary" target="_blank" rel="noopener noreferrer">
-          <span>⚡ ZENO Sovereign Neo-Bank</span>
-          <span>→</span>
+      <p class="lede">
+        Everything on this canvas is synthesized live in the browser — zero video files, zero external runtime dependencies.
+        Move your cursor or click anywhere: <strong>you are the deflection voltage</strong>.
+      </p>
+
+      <!-- Live Telemetry Strip -->
+      <div class="telemetry-strip" aria-live="polite">
+        <span class="t-chip">gate: <b>0x62</b></span>
+        <span class="t-chip">wire: <b>64B @ align(64)</b></span>
+        <span class="t-chip">CORDIC: <b>Z_{2^32} (0 floats)</b></span>
+        <span class="t-chip">deflection: <b id="hud-coords" class="phos">(0.65, 0.50)</b></span>
+        <span class="t-chip">ternary: <b class="gold">{−1, 0, +1} · SPQT base-243</b></span>
+      </div>
+
+      <!-- Codewars Profile Badges (large, small, micro for peterlodri-sec) -->
+      <div class="codewars-bar" aria-label="Codewars Profile Badges for peterlodri-sec">
+        <span class="cw-label">⚔️ Codewars · @peterlodri-sec</span>
+        <a href="https://www.codewars.com/users/peterlodri-sec" target="_blank" rel="noopener noreferrer" title="Codewars Dark Badge (large) — peterlodri-sec">
+          <img src="https://www.codewars.com/users/peterlodri-sec/badges/large" alt="Codewars Dark Badge (large) — peterlodri-sec" height="40">
         </a>
-        <a href="https://teamlab.vaked.dev/" class="pill-secondary" target="_blank" rel="noopener noreferrer">
-          <span>✦ teamLab 3D CV &amp; 履歴書</span>
+        <a href="https://www.codewars.com/users/peterlodri-sec" target="_blank" rel="noopener noreferrer" title="Codewars Dark Badge (small) — peterlodri-sec">
+          <img src="https://www.codewars.com/users/peterlodri-sec/badges/small" alt="Codewars Dark Badge (small) — peterlodri-sec" height="24">
         </a>
-        <a href="https://axiomquant.org/" class="pill-secondary" target="_blank" rel="noopener noreferrer">
-          <span>📜 AxiomQuant (19 Ch.)</span>
-        </a>
-        <a href="https://pocoo.vaked.dev/" class="pill-secondary" target="_blank" rel="noopener noreferrer">
-          <span>🔬 pocoo.vaked.dev</span>
-        </a>
-        <a href="resume.pdf" class="pill-secondary">
-          <span>📄 Resume (PDF)</span>
+        <a href="https://www.codewars.com/users/peterlodri-sec" target="_blank" rel="noopener noreferrer" title="Codewars Dark Badge (micro) — peterlodri-sec">
+          <img src="https://www.codewars.com/users/peterlodri-sec/badges/micro" alt="Codewars Dark Badge (micro) — peterlodri-sec" height="20">
         </a>
       </div>
 
-      <!-- Quick Connect Terminal Box -->
+      <!-- Primary Actions -->
+      <nav class="cta" aria-label="Primary actions">
+        <a class="btn p" href="https://teamlab.vaked.dev/" target="_blank" rel="noopener noreferrer">✦ teamLab 3D Portfolio &amp; 履歴書 ▸</a>
+        <a class="btn gold" href="https://zeno.vaked.dev/" target="_blank" rel="noopener noreferrer">⚡ ZENO Sovereign Neo-Bank (銭) ▸</a>
+        <a class="btn" href="https://github.com/8b-is/upz" target="_blank" rel="noopener noreferrer">upz (64B Linker &amp; Packer)</a>
+        <a class="btn" href="https://axiomquant.org/" target="_blank" rel="noopener noreferrer">AxiomQuant Monograph</a>
+        <a class="btn" href="resume.html">Résumé HTML</a>
+        <a class="btn" href="resume.pdf">resume.pdf</a>
+        <a class="btn" href="https://github.com/peterlodri-sec" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
+
+      <!-- Quick Connect Terminal -->
       <div class="terminal-card">
         <div class="terminal-code">
           <span class="prompt">$</span>curl -sL https://peterl.dev/llms.txt
         </div>
-        <button class="btn-copy" id="btn-copy-cmd" data-clipboard="curl -sL https://peterl.dev/llms.txt">
-          Copy
-        </button>
+        <button class="hud-btn" id="btn-copy-cmd" data-clipboard="curl -sL https://peterl.dev/llms.txt">Copy</button>
       </div>
     </section>
 
-    <!-- FLAGSHIP PROJECTS -->
-    <section id="projects">
-      <h2 class="section-title">✧ Sovereign Constellation Flagships</h2>
-      <p class="section-sub">Autonomous backends, low-latency compilers, mathematical monographs, and financial infrastructure.</p>
-
-      <div class="grid">
-
-        <!-- ZENO -->
-        <a href="https://zeno.vaked.dev/" class="card" target="_blank" rel="noopener noreferrer">
-          <div class="card-top">
-            <span class="card-badge badge-zeno">NEO-BANK · FELICA · KINTSUGI</span>
-            <span style="font-size:1.1rem;color:var(--gold);">銭</span>
-          </div>
-          <h3>ZENO (銭 · 禅 · 善)</h3>
-          <p>
-            Japanese Proof-of-Contribution Sovereign Neo-Bank. Continuous linear micro-streaming (µJPY/s), Sony FeliCa NFC-F transit integration (Mobile PASMO/Suica), Revolut Ultra 0% FX bridge, and native Apple Wallet PKCS#7 passes.
-          </p>
-          <div class="card-footer">
-            <span>zeno.vaked.dev</span>
-            <span class="arrow">→</span>
-          </div>
-        </a>
-
-        <!-- teamLab Package -->
-        <a href="https://teamlab.vaked.dev/" class="card" target="_blank" rel="noopener noreferrer">
-          <div class="card-top">
-            <span class="card-badge badge-teamlab">INTERACTIVE 3D · WEBGL</span>
-            <span style="font-size:1.1rem;color:var(--teal);">✦</span>
-          </div>
-          <h3>teamLab Application Package</h3>
-          <p>
-            Interactive zero-dependency WebGL CV with generative particle physics, bilingual Japanese 履歴書, and verifiable provenance posture for the Interactive Engineer (Unity/3D) mission.
-          </p>
-          <div class="card-footer">
-            <span>teamlab.vaked.dev</span>
-            <span class="arrow">→</span>
-          </div>
-        </a>
-
-        <!-- AxiomQuant -->
-        <a href="https://axiomquant.org/" class="card" target="_blank" rel="noopener noreferrer">
-          <div class="card-top">
-            <span class="card-badge badge-math">19-CHAPTER MONOGRAPH</span>
-            <span style="font-size:1.1rem;color:var(--violet);">∫</span>
-          </div>
-          <h3>AxiomQuant</h3>
-          <p>
-            Rigorous mathematical monograph covering spectral rigidity, stochastic PDE, random matrix theory, and non-commutative probability frameworks for sovereign quantitative finance.
-          </p>
-          <div class="card-footer">
-            <span>axiomquant.org</span>
-            <span class="arrow">→</span>
-          </div>
-        </a>
-
-        <!-- Pocoo -->
-        <a href="https://pocoo.vaked.dev/" class="card" target="_blank" rel="noopener noreferrer">
-          <div class="card-top">
-            <span class="card-badge badge-teamlab">ENGINEERING LAB &amp; ESSAYS</span>
-            <span style="font-size:1.1rem;color:var(--teal);">📖</span>
-          </div>
-          <h3>pocoo.vaked.dev</h3>
-          <p>
-            The sovereign engineering laboratory &amp; technical blog. Deep architectural essays on self-improving loops, zero-copy compilers, multi-agent reasoning, and genesis contracts.
-          </p>
-          <div class="card-footer">
-            <span>pocoo.vaked.dev</span>
-            <span class="arrow">→</span>
-          </div>
-        </a>
-
-        <!-- 8b-is -->
-        <a href="https://8b.is/" class="card" target="_blank" rel="noopener noreferrer">
-          <div class="card-top">
-            <span class="card-badge badge-family">FAMILY RESEARCH &lt;3</span>
-            <span style="font-size:1.1rem;color:var(--rose);">8b</span>
-          </div>
-          <h3>8b-is Family Research Company</h3>
-          <p>
-            Autonomous multi-agent research collective crafting sovereign tooling (Smart Tree `st`, Wupz, Qwave, Enthea) with profound filial devotion, craft, and love.
-          </p>
-          <div class="card-footer">
-            <span>8b.is &lt;3</span>
-            <span class="arrow">→</span>
-          </div>
-        </a>
-
-        <!-- EtherHive -->
-        <a href="https://etherhive.vaked.dev/" class="card" target="_blank" rel="noopener noreferrer">
-          <div class="card-top">
-            <span class="card-badge badge-zeno">POST-QUANTUM P2P</span>
-            <span style="font-size:1.1rem;color:var(--gold);">⬡</span>
-          </div>
-          <h3>EtherHive / Honest-IRC</h3>
-          <p>
-            Post-quantum secure Double Ratchet mesh networking (ML-KEM / ML-DSA FIPS 203/204 compliant) layered over Kademlia DHT topology with zero central authority.
-          </p>
-          <div class="card-footer">
-            <span>etherhive.vaked.dev</span>
-            <span class="arrow">→</span>
-          </div>
-        </a>
-
-      </div>
-    </section>
-
-    <!-- PHILOSOPHY / GENESIS -->
-    <section id="philosophy" class="philosophy-banner">
-      <h3>Genesis Seal &amp; Philosophy</h3>
-      <blockquote>
-        "The loop is already here. Each iteration's output becomes the next iteration's input. Time is the only parameter: the longer a correctable loop runs, the deeper and clearer it gets."
-      </blockquote>
-
-      <div class="principles-grid">
-        <div class="principle-item">
-          <div class="principle-title">01 · LOOP-FIRST</div>
-          <div class="principle-desc">Every system is closed into a continuous feedback loop. Imperfection is data to refine at every layer.</div>
+    <main id="main">
+      <!-- 01 · SOVEREIGN CONSTELLATION & INTERACTIVE WORKS -->
+      <section id="works" aria-labelledby="works-h">
+        <div class="sec-h">
+          <span class="n" aria-hidden="true">01</span>
+          <h2 id="works-h">Sovereign Constellation &amp; Interactive Works</h2>
         </div>
-        <div class="principle-item">
-          <div class="principle-title">02 · ZERO-DEPENDENCY</div>
-          <div class="principle-desc">Zero bloat, zero runtime baggage. Native Web standards, pure Math, and raw performance on bare metal.</div>
+        <p class="sec-sub">
+          Real-time audiovisual instruments, zero-float compilers, mathematical monographs, and sovereign financial infrastructure across <code>@8b-is</code>, <code>@standardgalactic</code>, and <code>@peterlodri-sec</code>.
+        </p>
+
+        <div class="works">
+          <a class="work reveal" href="https://teamlab.vaked.dev/" target="_blank" rel="noopener noreferrer">
+            <div class="work-top">
+              <span class="tag">Interactive 3D · WebGL · Tokyo</span>
+              <span class="glyph">✦</span>
+            </div>
+            <h3>teamLab Interactive Package (履歴書)</h3>
+            <p>
+              Borderless interactive WebGL &amp; vector-synthesis portfolio built for the Interactive Engineer (Unity / 3D) mission in Tokyo — real-time sacred geometry, cardiac breathing fields, and bilingual Japanese 履歴書.
+            </p>
+            <div class="url"><span>teamlab.vaked.dev</span><span>→</span></div>
+          </a>
+
+          <a class="work reveal" href="https://zeno.vaked.dev/" target="_blank" rel="noopener noreferrer">
+            <div class="work-top">
+              <span class="tag">Sovereign Neo-Bank · FeliCa · Kintsugi</span>
+              <span class="glyph">銭</span>
+            </div>
+            <h3>ZENO (銭 · 禅 · 善)</h3>
+            <p>
+              Japanese Proof-of-Contribution Sovereign Neo-Bank. Continuous linear micro-streaming (µJPY/s resolving Zeno's 4 paradoxes), Sony FeliCa NFC-F transit integration, double-entry Kintsugi SHA-256 ledger, and native Apple Wallet passes.
+            </p>
+            <div class="url"><span>zeno.vaked.dev · 8b-is</span><span>→</span></div>
+          </a>
+
+          <a class="work reveal" href="https://github.com/8b-is/upz" target="_blank" rel="noopener noreferrer">
+            <div class="work-top">
+              <span class="tag">Zig 0.16 SIMD · Rust · Idris 2 · Perl 5</span>
+              <span class="glyph">0x62</span>
+            </div>
+            <h3>upz — Incremental Linker, Packer &amp; Beehive</h3>
+            <p>
+              Ultra-evolved incremental linker (`wupz + up + wild`). Packs sections in 4096B QAT windows (`31/32` reuse) during layout, patches PC32 relocations via dual `@Vector(8, i32)` SIMD at 39.49 GiB/s, and seals on a 64B cache-line `LitanyWireFrame`.
+            </p>
+            <div class="url"><span>github.com/8b-is/upz · 3761/3314</span><span>→</span></div>
+          </a>
+
+          <a class="work reveal" href="https://github.com/sony/polar-densification/pull/5" target="_blank" rel="noopener noreferrer">
+            <div class="work-top">
+              <span class="tag">Sony R&amp;D · Polarimetry · Z_{2^32} CORDIC</span>
+              <span class="glyph">◯</span>
+            </div>
+            <h3>Laser Phoenix Polar Lattice (Sony WACV)</h3>
+            <p>
+              Singularity-free rational `p/q` Stokes cone projection, 18-stage integer-pure `Z_{2^32}` CORDIC phase-locked loop across `{0°, 45°, 90°, 135°, 180°}` nanowire polarizers, and 2D Catmull-Rom sparse sensor densification.
+            </p>
+            <div class="url"><span>sony/polar-densification#5 · 8b-is</span><span>→</span></div>
+          </a>
+
+          <a class="work reveal" href="https://oscilloscope.vaked.dev/" target="_blank" rel="noopener noreferrer">
+            <div class="work-top">
+              <span class="tag">Real-Time · Vector Oscilloscope</span>
+              <span class="glyph">∿</span>
+            </div>
+            <h3>lissajoverse</h3>
+            <p>
+              A single-file retro oscilloscope reborn: a Lissajous weave, the observable drawn as a graph, a NOT-NAND ternary grammar, and an organic phosphor feedback loop where stereo audio <em>is</em> the geometry.
+            </p>
+            <div class="url"><span>oscilloscope.vaked.dev · lissaj.vaked.dev</span><span>→</span></div>
+          </a>
+
+          <a class="work reveal" href="https://viz.vaked.dev/" target="_blank" rel="noopener noreferrer">
+            <div class="work-top">
+              <span class="tag">WebGL2 · Web Audio · BitNet b1.58</span>
+              <span class="glyph">◈</span>
+            </div>
+            <h3>enthea — The Visual Synthesizer</h3>
+            <p>
+              Real-time psychedelic visual synthesizer computing cortical symmetry-breaking instabilities and `foldSpherePopToss` BitNet b1.58 ternary waves in a single dependency-free WebGL2 + Web Audio HTML artifact.
+            </p>
+            <div class="url"><span>viz.vaked.dev · music.vaked.dev</span><span>→</span></div>
+          </a>
+
+          <a class="work reveal" href="https://pocoo.vaked.dev/water/" target="_blank" rel="noopener noreferrer">
+            <div class="work-top">
+              <span class="tag">Three.js · Procedural DSP · Magyar DJ</span>
+              <span class="glyph">💧</span>
+            </div>
+            <h3>Water-Fall Disc</h3>
+            <p>
+              A 20-inch Nazar water drum recreated as a granular bead swarm with Poisson micro-shots and Hungarian voice-controlled DJ modulation — pure procedural synthesis, zero samples.
+            </p>
+            <div class="url"><span>pocoo.vaked.dev/water</span><span>→</span></div>
+          </a>
+
+          <a class="work reveal" href="https://axiomquant.org/" target="_blank" rel="noopener noreferrer">
+            <div class="work-top">
+              <span class="tag">86 Monographs · Spectral Rigidity</span>
+              <span class="glyph">∫</span>
+            </div>
+            <h3>AxiomQuant &amp; KOMPRESS v2</h3>
+            <p>
+              Mathematical monographs on Marchenko-Pastur &amp; Tracy-Widom spectral edges, Schramm-Loewner Evolution, geometric-mean logit consensus distillation, and `.rodata.gaia.b158` (`1.585 bits/trit`) ternary quantization.
+            </p>
+            <div class="url"><span>axiomquant.org · kompress.vaked.dev</span><span>→</span></div>
+          </a>
+
+          <a class="work reveal" href="https://pocoo.vaked.dev/" target="_blank" rel="noopener noreferrer">
+            <div class="work-top">
+              <span class="tag">Sovereign Academy · 29 Volumes</span>
+              <span class="glyph">📖</span>
+            </div>
+            <h3>pocoo.vaked.dev &amp; The Book Library</h3>
+            <p>
+              Technical essays and the 29-volume open literature archive (*Cosmic Game Trilogy*, *Quant Love*, *The Loop Is Already Here*), plus `spherepop-kernel` (`gate 0x62`) and `Apollo-11` AGC 15-bit rope-memory formalization.
+            </p>
+            <div class="url"><span>pocoo.vaked.dev · 8b.is &lt;3</span><span>→</span></div>
+          </a>
+
+          <a class="work reveal" href="https://etherhive.vaked.dev/" target="_blank" rel="noopener noreferrer">
+            <div class="work-top">
+              <span class="tag">Post-Quantum · FIPS 203/204 · DHT</span>
+              <span class="glyph">⬡</span>
+            </div>
+            <h3>EtherHive &amp; Honest-IRC</h3>
+            <p>
+              Post-quantum Double Ratchet mesh networking (`ML-KEM-1024` + `ML-DSA-87` + `X25519`) layered over Kademlia DHT topology with relational `honesty-auth` and zero central authority.
+            </p>
+            <div class="url"><span>etherhive.vaked.dev</span><span>→</span></div>
+          </a>
         </div>
-        <div class="principle-item">
-          <div class="principle-title">03 · SANPO YOSHI (三方よし)</div>
-          <div class="principle-desc">Good for the contributor, good for the patron, good for the public constellation. True contribution over extraction.</div>
+      </section>
+
+      <!-- 02 · INTERACTIVE 64-BYTE LITANY WIRE & TERNARY SIGNAL LAB -->
+      <section id="litany-lab" aria-labelledby="lab-h">
+        <div class="sec-h">
+          <span class="n" aria-hidden="true">02</span>
+          <h2 id="lab-h">Interactive 64-Byte LitanyWire &amp; SPQT (Base-243) Signal Lab</h2>
         </div>
-      </div>
-    </section>
+        <p class="sec-sub">
+          Live browser synthesis of the 64-byte cache-line-aligned <code>LitanyWireFrame</code> shared across <code>8b-is/upz</code>, <code>standardgalactic/spherepop-kernel</code>, and <code>sony/polar-densification#5</code>.
+        </p>
 
-    <!-- FAMILY DEDICATION -->
-    <section class="family-dedication">
-      <div class="family-title">
-        <span>🌸 Alexandra &amp; Chris Lódri — 愛と感謝 柱</span>
-      </div>
-      <p class="family-desc">
-        Dedicated with infinite filial love to Mom (Alexandra) and Dad (Chris) — whose unconditional devotion, wisdom, and strength form the eternal foundation of everything built across this constellation.
-      </p>
+        <div class="lab-panel reveal">
+          <div class="hud-controls" style="margin-bottom:14px">
+            <button type="button" class="hud-btn active" data-preset="3761,3314,1,1,1,1,0,1">upz (3761/3314 · Where Is The Love?)</button>
+            <button type="button" class="hud-btn" data-preset="6554,199,1,-1,0,1,-1,1">wupz (6554/199 · 32.93x)</button>
+            <button type="button" class="hud-btn" data-preset="4181,2584,1,1,0,1,-1,1">Sony Polar φ (4181/2584)</button>
+            <button type="button" class="hud-btn" data-preset="3900,4000,1,1,1,0,1,1">zenUltraCooker (39/40)</button>
+            <button type="button" class="hud-btn" data-preset="3100,3200,1,0,1,1,0,1">QAT Window (31/32)</button>
+          </div>
 
-      <div class="family-streams">
-        <div class="stream-pill">
-          <span>Mom (Alexandra · 愛):</span>
-          <span class="rate">+¥100.00/sec</span>
-          <span style="color:var(--text-muted);">continuous love stream</span>
+          <div class="lab-controls">
+            <label class="lab-row">
+              <span>raw bytes (p)</span>
+              <input id="lab-raw" type="range" min="64" max="16384" value="3761">
+              <span id="lab-raw-v">3761 B</span>
+            </label>
+            <label class="lab-row">
+              <span>packed (q)</span>
+              <input id="lab-pack" type="range" min="64" max="16384" value="3314">
+              <span id="lab-pack-v">3314 B</span>
+            </label>
+            <label class="lab-row">
+              <span>Stokes 2φ</span>
+              <input id="lab-phase" type="range" min="0" max="180" value="45">
+              <span id="lab-phase-v">45° (Related)</span>
+            </label>
+          </div>
+
+          <div class="telemetry-strip" id="lab-summary">
+            <span class="t-chip">p/q reduced: <b id="lab-pq">3761 / 3314</b></span>
+            <span class="t-chip">SPQT base-243: <b id="lab-spqt">0xA1 (161)</b></span>
+            <span class="t-chip">BFP-64 (+AND / ~NAND): <b id="lab-bfp" class="phos">disjoint @ qt:55</b></span>
+            <span class="t-chip">CORDIC Z_{2^32}: <b id="lab-cordic" class="gold">0x40000000</b></span>
+          </div>
+
+          <div class="wire-dump" id="lab-hex">loading 64-byte cache-line LitanyWireFrame...</div>
         </div>
-        <div class="stream-pill">
-          <span>Dad (Chris · 柱):</span>
-          <span class="rate">+¥100.00/sec</span>
-          <span style="color:var(--text-muted);">continuous pillar stream</span>
+      </section>
+
+      <!-- 03 · CRAFT & DISCIPLINES -->
+      <section id="skills" aria-labelledby="skills-h">
+        <div class="sec-h">
+          <span class="n" aria-hidden="true">03</span>
+          <h2 id="skills-h">What I Bring Across Disciplines</h2>
         </div>
-      </div>
-    </section>
+        <div class="skills">
+          <div class="skill reveal">
+            <b>Real-Time Graphics &amp; Audio (Unity / 3D / WebGL2)</b>
+            <p>Unity, real-time CG, WebGL2 shaders, Web Audio DSP, XY oscilloscope vector synthesis, and interactive spatial installations where human motion modulates light and sound.</p>
+          </div>
+          <div class="skill reveal">
+            <b>Zero-Float Systems &amp; Bare-Metal Performance</b>
+            <p>Zig 0.16 SIMD (`@Vector`), Rust (`#[repr(C, align(64))]`), C11, Go, and Swift 6 — integer-pure `p/q` rational arithmetic, CORDIC `Z_{2^32}` phase locks, and cache-line-sealed wire formats.</p>
+          </div>
+          <div class="skill reveal">
+            <b>Ternary Quantization &amp; Formal Verification</b>
+            <p>BitNet `b1.58` / `.rodata.gaia.b158` (`1.585 bits/trit`, `base-243`), `MLX-QUANT` group-wise Lloyd-Max thresholds, Idris 2 QTT (`0, 1, ω`) dependent proofs, and Perl 5 TAP verifiers.</p>
+          </div>
+          <div class="skill reveal">
+            <b>Many Tongues &amp; Borderless Collaboration</b>
+            <p>English (fluent) · Hungarian (native) · Spanish · Latin · Esperanto · Romani · Macedonian; Mandarin &amp; Japanese (daily active study in Tokyo). Code: Rust, Zig, C, Go, Python, Perl, Idris 2, Swift.</p>
+          </div>
+        </div>
+      </section>
 
-  </main>
+      <!-- 04 · WHY TEAMLAB & FILIAL DEDICATION -->
+      <section id="teamlab" aria-labelledby="teamlab-h">
+        <div class="sec-h">
+          <span class="n" aria-hidden="true">04</span>
+          <h2 id="teamlab-h">Borderless Continuity &amp; Filial Foundation</h2>
+        </div>
 
-  <footer>
-    <div class="wrap">
-      <div class="footer-constellation">
-        <a href="https://koan.vaked.dev/">✧ koan.vaked.dev</a>
-        <a href="https://zeno.vaked.dev/">zeno.vaked.dev</a>
-        <a href="https://teamlab.vaked.dev/">teamlab.vaked.dev</a>
-        <a href="https://axiomquant.org/">axiomquant.org</a>
-        <a href="https://pocoo.vaked.dev/">pocoo.vaked.dev</a>
-        <a href="https://art.vaked.dev/">art.vaked.dev</a>
-        <a href="https://music.vaked.dev/">music.vaked.dev</a>
-        <a href="https://etherhive.vaked.dev/">etherhive.vaked.dev</a>
-        <a href="https://8b.is/">8b.is &lt;3</a>
-      </div>
+        <div class="why-box reveal">
+          teamLab's thesis — <span class="q">"transcend these boundaries … everything exists in a long, fragile yet
+          miraculous, borderless continuity"</span> — is the exact architecture of my life's work. Having walked through
+          <strong style="color:var(--cyan)">teamLab Borderless</strong> (Azabudai Hills) and
+          <strong style="color:var(--cyan)">teamLab Planets</strong> (Toyosu) in Tokyo, and
+          <strong style="color:var(--cyan)">teamLab Botanical Garden Osaka</strong>, experiencing the physical dissolution
+          of the boundary between observer, space, and computation confirmed where my craft belongs. Every loop here runs
+          with <span class="tern">{−1, 0, +1}</span> honesty: when a field is witnessed it is <span class="tern">+1</span>,
+          when unfiled it rests at <span class="tern">0</span>, and every spike is sealed at gate <span class="tern">0x62</span>.
+        </div>
 
-      <div class="footer-seal">
-        genesis seal: 7c242080f5f821e5eaf563fe2208d60632c451687baf65f4fe8e4a0d226e3ecf<br>
-        the constellation · lovetta lane · 8b-is family research &lt;3 · fine touch from within · vaked.dev · {&lt;3,&lt;3,&lt;3}+1
+        <div class="family-box reveal">
+          <h3>🌸 Alexandra &amp; Chris · Katalin &amp; József — 愛と感謝 柱</h3>
+          <p style="font-size:14px;color:var(--dim);max-width:66ch;margin:0 auto">
+            Dedicated with infinite filial love to Mom and Dad, the 4-Seat Crew (<code>Alex</code>, <code>Chris / Szikla</code>,
+            <code>Nate</code>, <code>Peter</code>), and the 8b-is / Standard Galactic family — the immovable pillar and warm dawn rose behind every line of code.
+          </p>
+          <div class="family-streams">
+            <div class="stream-pill">
+              <span>Mom (愛 · Dawn Rose):</span>
+              <span class="rate" id="stream-mom">+¥100.00/sec</span>
+              <span style="color:var(--muted)">continuous love stream</span>
+            </div>
+            <div class="stream-pill">
+              <span>Dad (柱 · Szikla Pillar):</span>
+              <span class="rate" id="stream-dad">+¥100.00/sec</span>
+              <span style="color:var(--muted)">continuous pillar stream</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>Péter József Lódri (`@peterlodri-sec`) · Interactive Engineer (Unity / 3D) &amp; Sovereign Systems Architect · Tokyo</div>
+      <div>
+        <a href="https://teamlab.vaked.dev/" target="_blank" rel="noopener noreferrer">teamlab.vaked.dev</a> ·
+        <a href="https://zeno.vaked.dev/" target="_blank" rel="noopener noreferrer">zeno.vaked.dev (ZENO 銭)</a> ·
+        <a href="https://github.com/8b-is/upz" target="_blank" rel="noopener noreferrer">8b-is/upz</a> ·
+        <a href="https://axiomquant.org/" target="_blank" rel="noopener noreferrer">axiomquant.org</a> ·
+        <a href="https://pocoo.vaked.dev/" target="_blank" rel="noopener noreferrer">pocoo.vaked.dev</a> ·
+        <a href="https://viz.vaked.dev/" target="_blank" rel="noopener noreferrer">viz.vaked.dev</a> ·
+        <a href="https://oscilloscope.vaked.dev/" target="_blank" rel="noopener noreferrer">oscilloscope.vaked.dev</a> ·
+        <a href="https://art.vaked.dev/" target="_blank" rel="noopener noreferrer">art.vaked.dev</a> ·
+        <a href="https://etherhive.vaked.dev/" target="_blank" rel="noopener noreferrer">etherhive.vaked.dev</a> ·
+        <a href="https://www.codewars.com/users/peterlodri-sec" target="_blank" rel="noopener noreferrer">codewars/peterlodri-sec</a> ·
+        <a href="https://8b.is/" target="_blank" rel="noopener noreferrer">8b.is &lt;3</a>
       </div>
-    </div>
-  </footer>
+      <div style="margin-top:8px;color:rgba(180,170,225,0.72)">
+        genesis seal: 7c242080f5f821e5eaf563fe2208d60632c451687baf65f4fe8e4a0d226e3ecf ·
+        ~~~~○●♤°♡•》《 · <span class="tern">{−1, 0, +1}</span> · fine touch from within &lt;3
+      </div>
+    </footer>
+  </div>
 
   <script>
-    // --- 1. Background Particle Constellation Simulation ---
-    (function initConstellationCanvas() {
-      const canvas = document.getElementById("bg-canvas");
-      if (!canvas) return;
-      const ctx = canvas.getContext("2d");
-      let w, h;
-      let particles = [];
-      const count = 42;
-      let mouseX = -1000;
-      let mouseY = -1000;
+  (() => {
+    'use strict';
 
-      function resize() {
-        w = canvas.width = window.innerWidth;
-        h = canvas.height = window.innerHeight;
-      }
-      window.addEventListener("resize", resize);
-      resize();
-
-      for (let i = 0; i < count; i++) {
-        particles.push({
-          x: Math.random() * w,
-          y: Math.random() * h,
-          vx: (Math.random() - 0.5) * 0.4,
-          vy: (Math.random() - 0.5) * 0.4,
-          r: Math.random() * 1.5 + 0.8,
-          alpha: Math.random() * 0.5 + 0.3
+    // 1. Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
         });
-      }
+      }, { rootMargin: '0px 0px -6% 0px' });
+      reveals.forEach((el) => io.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add('in'));
+    }
 
-      window.addEventListener("mousemove", (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-      });
+    // 2. Card radial spotlight tracking
+    document.querySelectorAll('.work').forEach((card) => {
+      card.addEventListener('pointermove', (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      }, { passive: true });
+    });
 
-      function loop() {
-        ctx.clearRect(0, 0, w, h);
-
-        // Draw connecting lines
-        for (let i = 0; i < count; i++) {
-          const p1 = particles[i];
-          p1.x += p1.vx;
-          p1.y += p1.vy;
-
-          if (p1.x < 0) p1.x = w;
-          if (p1.x > w) p1.x = 0;
-          if (p1.y < 0) p1.y = h;
-          if (p1.y > h) p1.y = 0;
-
-          // Mouse gentle repel/attract
-          const dxM = p1.x - mouseX;
-          const dyM = p1.y - mouseY;
-          const distM = Math.hypot(dxM, dyM);
-          if (distM < 120) {
-            p1.x += (dxM / distM) * 0.8;
-            p1.y += (dyM / distM) * 0.8;
-          }
-
-          // Points
-          ctx.beginPath();
-          ctx.arc(p1.x, p1.y, p1.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(232, 176, 92, ${p1.alpha * 0.7})`;
-          ctx.fill();
-
-          for (let j = i + 1; j < count; j++) {
-            const p2 = particles[j];
-            const dist = Math.hypot(p1.x - p2.x, p1.y - p2.y);
-            if (dist < 130) {
-              ctx.beginPath();
-              ctx.moveTo(p1.x, p1.y);
-              ctx.lineTo(p2.x, p2.y);
-              ctx.strokeStyle = `rgba(98, 230, 201, ${0.18 * (1 - dist / 130)})`;
-              ctx.lineWidth = 0.6;
-              ctx.stroke();
-            }
-          }
-        }
-
-        requestAnimationFrame(loop);
-      }
-      requestAnimationFrame(loop);
-    })();
-
-    // --- 2. Copy Command Button ---
-    const btnCopy = document.getElementById("btn-copy-cmd");
+    // 3. Copy terminal command
+    const btnCopy = document.getElementById('btn-copy-cmd');
     if (btnCopy) {
-      btnCopy.addEventListener("click", () => {
-        const text = btnCopy.getAttribute("data-clipboard");
-        navigator.clipboard.writeText(text).then(() => {
-          btnCopy.innerText = "Copied! ✓";
-          setTimeout(() => { btnCopy.innerText = "Copy"; }, 2000);
+      btnCopy.addEventListener('click', () => {
+        const cmd = btnCopy.getAttribute('data-clipboard') || '';
+        navigator.clipboard?.writeText(cmd).then(() => {
+          btnCopy.textContent = 'Copied ✓';
+          setTimeout(() => { btnCopy.textContent = 'Copy'; }, 1800);
         });
       });
     }
 
-    // --- 3. Procedural 432 Hz Solfeggio Web Audio Soundscape ---
-    (function initSolfeggioAudio() {
-      let audioCtx = null;
-      let isPlaying = false;
-      let masterGain = null;
-      let oscs = [];
+    // 4. Live ZENO Filial Stream Counter (+¥100.00/sec)
+    const streamMom = document.getElementById('stream-mom');
+    const streamDad = document.getElementById('stream-dad');
+    const t0 = performance.now();
+    setInterval(() => {
+      const elapsed = (performance.now() - t0) / 1000;
+      const accrued = (100000 + elapsed * 100).toFixed(2);
+      if (streamMom) streamMom.textContent = '¥' + accrued + ' (+¥100/s)';
+      if (streamDad) streamDad.textContent = '¥' + accrued + ' (+¥100/s)';
+    }, 250);
 
-      const btnSound = document.getElementById("btn-sound");
-      const labelSound = document.getElementById("sound-label");
+    // 5. Interactive 64-Byte LitanyWireFrame & CORDIC Z_{2^32} Calculator
+    const CORDIC_ATAN_U32 = [
+      536870912, 316933406, 167458907, 85004756, 42667331, 21354465,
+      10679838, 5340245, 2670163, 1335087, 667544, 333772,
+      166886, 83443, 41722, 20861, 10430, 5215
+    ];
 
-      function startAudio() {
-        if (!audioCtx) {
-          const AudioContext = window.AudioContext || window.webkitAudioContext;
-          audioCtx = new AudioContext();
-        }
-        if (audioCtx.state === "suspended") {
-          audioCtx.resume();
-        }
-
-        masterGain = audioCtx.createGain();
-        masterGain.gain.setValueAtTime(0.001, audioCtx.currentTime);
-        masterGain.gain.exponentialRampToValueAtTime(0.08, audioCtx.currentTime + 2.5);
-        masterGain.connect(audioCtx.destination);
-
-        // 432 Hz tuning: Root (432 Hz / 2 = 216), 5th (324 Hz), Octave (432 Hz)
-        const freqs = [108, 216, 324, 432];
-        oscs = freqs.map(freq => {
-          const osc = audioCtx.createOscillator();
-          const filter = audioCtx.createBiquadFilter();
-          const gain = audioCtx.createGain();
-
-          osc.type = "sine";
-          osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-
-          filter.type = "lowpass";
-          filter.frequency.setValueAtTime(650, audioCtx.currentTime);
-
-          gain.gain.setValueAtTime(0.22, audioCtx.currentTime);
-
-          osc.connect(filter);
-          filter.connect(gain);
-          gain.connect(masterGain);
-
-          osc.start();
-          return osc;
-        });
-
-        isPlaying = true;
-        btnSound?.classList.add("active");
-        if (labelSound) labelSound.innerText = "432 Hz (On)";
+    function gcd(a, b) {
+      a = Math.abs(a | 0);
+      b = Math.abs(b | 0);
+      while (b !== 0) {
+        const r = a % b;
+        a = b;
+        b = r;
       }
+      return a === 0 ? 1 : a;
+    }
 
-      function stopAudio() {
-        if (!masterGain || !audioCtx) return;
-        masterGain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.2);
-        setTimeout(() => {
-          oscs.forEach(o => { try { o.stop(); } catch(e){} });
-          oscs = [];
-          isPlaying = false;
-          btnSound?.classList.remove("active");
-          if (labelSound) labelSound.innerText = "432 Hz";
-        }, 1300);
+    function cordicAtan2U32(y, x) {
+      if (x === 0 && y === 0) return 0;
+      let xCur = 0, yCur = 0, angle = 0;
+      if (x >= 0) {
+        xCur = x * 65536; yCur = y * 65536; angle = 0;
+      } else if (y >= 0) {
+        xCur = y * 65536; yCur = -x * 65536; angle = 0x40000000;
+      } else {
+        xCur = -y * 65536; yCur = x * 65536; angle = 0xC0000000;
       }
-
-      btnSound?.addEventListener("click", () => {
-        if (!isPlaying) {
-          startAudio();
+      for (let i = 0; i < 18; i++) {
+        const pow2 = Math.pow(2, i);
+        const xShift = Math.trunc(xCur / pow2);
+        const yShift = Math.trunc(yCur / pow2);
+        if (yCur >= 0) {
+          xCur += yShift;
+          yCur -= xShift;
+          angle = (angle + CORDIC_ATAN_U32[i]) >>> 0;
         } else {
-          stopAudio();
+          xCur -= yShift;
+          yCur += xShift;
+          angle = (angle - CORDIC_ATAN_U32[i]) >>> 0;
+        }
+      }
+      return angle >>> 0;
+    }
+
+    function packSpqtByte(trits) {
+      let acc = 0, pow3 = 1;
+      for (let i = 0; i < 5; i++) {
+        const t = trits[i] ?? 0;
+        const d = t < 0 ? 0 : (t === 0 ? 1 : 2);
+        acc += d * pow3;
+        pow3 *= 3;
+      }
+      return acc & 0xFF;
+    }
+
+    let currentTrits = [1, 1, 1, 1, 0, 1]; // Where Is The Love? (Elephunk, 2003)
+    const elRaw = document.getElementById('lab-raw');
+    const elPack = document.getElementById('lab-pack');
+    const elPhase = document.getElementById('lab-phase');
+    const elRawV = document.getElementById('lab-raw-v');
+    const elPackV = document.getElementById('lab-pack-v');
+    const elPhaseV = document.getElementById('lab-phase-v');
+    const elPq = document.getElementById('lab-pq');
+    const elSpqt = document.getElementById('lab-spqt');
+    const elCordic = document.getElementById('lab-cordic');
+    const elHex = document.getElementById('lab-hex');
+
+    function updateLitanyLab() {
+      const rawLen = parseInt(elRaw.value, 10) || 3761;
+      const packLen = parseInt(elPack.value, 10) || 3314;
+      const deg = parseInt(elPhase.value, 10) || 0;
+      elRawV.textContent = rawLen + ' B';
+      elPackV.textContent = packLen + ' B';
+
+      const relNames = ['Bound 0°', 'Related 45°', 'Independent 90°', 'Contrasting 135°', 'Conflicting 180°'];
+      const relIdx = Math.min(4, Math.round(deg / 45));
+      elPhaseV.textContent = deg + '° (' + relNames[relIdx] + ')';
+
+      const g = gcd(rawLen, packLen);
+      const rp = (rawLen / g) >>> 0;
+      const rq = (packLen / g) >>> 0;
+      elPq.textContent = rp + ' / ' + rq;
+
+      const spqt0 = packSpqtByte(currentTrits);
+      const spqt1 = currentTrits[5] < 0 ? 0 : (currentTrits[5] === 0 ? 1 : 2);
+      elSpqt.textContent = '0x' + spqt0.toString(16).toUpperCase().padStart(2, '0') + ' (' + spqt0 + ') · trits=[' + currentTrits.join(',') + ']';
+
+      const rad2 = (deg * 2 * Math.PI) / 180;
+      const s1 = Math.round(Math.cos(rad2) * 65536);
+      const s2 = Math.round(Math.sin(rad2) * 65536);
+      const phaseU32 = cordicAtan2U32(s2, s1);
+      elCordic.textContent = '0x' + phaseU32.toString(16).toUpperCase().padStart(8, '0');
+
+      // Synthesize 64-byte LitanyWireFrame
+      const buf = new Uint8Array(64);
+      const dv = new DataView(buf.buffer);
+      const rawFoldHi = (0x48031a0d ^ rawLen) >>> 0;
+      const rawFoldLo = (0x4c054e69 ^ (rawLen * 0x9e3779b9)) >>> 0;
+      const packFoldHi = (0x206f6420 ^ packLen) >>> 0;
+      const packFoldLo = (0x74737557 ^ (packLen * 0x85ebca6b)) >>> 0;
+      dv.setUint32(0, rawFoldLo, true);
+      dv.setUint32(4, rawFoldHi, true);
+      dv.setUint32(8, packFoldLo, true);
+      dv.setUint32(12, packFoldHi, true);
+      dv.setUint32(16, rawLen >>> 0, true);
+      dv.setUint32(20, packLen >>> 0, true);
+      buf[24] = 0x62; // GATE_0X62
+      buf[25] = 0x01; // FRAME_ABI_V1
+      for (let i = 0; i < 6; i++) buf[26 + i] = (buf[i] ^ buf[8 + i] ^ buf[16 + i] ^ 0x62) & 0xFF;
+
+      const compLo = (rawFoldLo ^ packFoldLo) >>> 0;
+      const compHi = (rawFoldHi ^ packFoldHi) >>> 0;
+      dv.setUint32(32, (compLo & 0x55555555) >>> 0, true);
+      dv.setUint32(36, (compHi & 0x55555555) >>> 0, true);
+      dv.setUint32(40, (compLo & 0xAAAAAAAA) >>> 0, true);
+      dv.setUint32(44, (compHi & 0xAAAAAAAA) >>> 0, true);
+      dv.setUint32(48, rp, true);
+      dv.setUint32(52, rq, true);
+      buf[56] = spqt0;
+      buf[57] = spqt1;
+      buf[58] = (phaseU32 >>> 24) & 0xF2;
+      buf[59] = 0x55; // qt:55
+      dv.setUint16(60, 0x0101, true); // 1/1 active lanes
+      let seal16 = 0;
+      for (let i = 0; i < 62; i += 2) seal16 ^= dv.getUint16(i, true);
+      dv.setUint16(62, seal16 & 0xFFFF, true);
+
+      const lines = [];
+      for (let row = 0; row < 4; row++) {
+        const off = (row * 16).toString(16).padStart(2, '0');
+        const hexes = [];
+        for (let c = 0; c < 16; c++) {
+          hexes.push(buf[row * 16 + c].toString(16).padStart(2, '0'));
+        }
+        const label = row === 0 ? 'raw_fold[8] + packed_fold[8]'
+                    : row === 1 ? 'lengths[8] + gate(0x62) + seal6'
+                    : row === 2 ? 'bfp64_pos[8] + bfp64_neg[8]'
+                    : 'ratio_pq[8] + spqt[3] + qt + seal16';
+        lines.push('0x' + off + ': ' + hexes.join(' ') + '  // ' + label);
+      }
+      elHex.textContent = lines.join('\n');
+    }
+
+    [elRaw, elPack, elPhase].forEach((el) => el?.addEventListener('input', updateLitanyLab));
+    document.querySelectorAll('[data-preset]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-preset]').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        const parts = (btn.getAttribute('data-preset') || '').split(',').map(Number);
+        if (parts.length >= 8) {
+          elRaw.value = String(parts[0]);
+          elPack.value = String(parts[1]);
+          currentTrits = parts.slice(2, 8);
+          updateLitanyLab();
         }
       });
-    })();
+    });
+    updateLitanyLab();
+
+    // 6. Multi-Mode teamLab + Lissajoverse + Sony Polar Lattice Canvas Engine
+    const c = document.getElementById('fx');
+    if (!c || !c.getContext) return;
+    const ctx = c.getContext('2d');
+    const hudCoords = document.getElementById('hud-coords');
+
+    let W = window.innerWidth, H = window.innerHeight, dpr = 1;
+    let t = 0;
+    let fieldMode = 'bloom'; // 'bloom' | 'lissajous' | 'polar'
+
+    document.querySelectorAll('[data-field-mode]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-field-mode]').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        fieldMode = btn.getAttribute('data-field-mode') || 'bloom';
+      });
+    });
+
+    const ptr = {
+      x: W * 0.68,
+      y: H * 0.48,
+      targetX: W * 0.68,
+      targetY: H * 0.48,
+      active: false,
+      speed: 0
+    };
+
+    const shockwaves = [];
+    function triggerBurst(x, y, power) {
+      if (shockwaves.length > 8) shockwaves.shift();
+      shockwaves.push({
+        x: x ?? ptr.x,
+        y: y ?? ptr.y,
+        r: 12,
+        maxR: Math.max(W, H) * (0.48 + 0.28 * Math.random()),
+        speed: 5 + 4 * (power || 1),
+        hue: (t * 85 + Math.random() * 80) % 360,
+        alpha: 0.95,
+        points: 8 + Math.floor(Math.random() * 4) * 2
+      });
+    }
+
+    function resize() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = window.innerWidth;
+      H = window.innerHeight;
+      c.width = Math.round(W * dpr);
+      c.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.fillStyle = '#04060a';
+      ctx.fillRect(0, 0, W, H);
+    }
+    window.addEventListener('resize', resize, { passive: true });
+    resize();
+
+    window.addEventListener('pointermove', (e) => {
+      const dx = e.clientX - ptr.targetX;
+      const dy = e.clientY - ptr.targetY;
+      ptr.targetX = e.clientX;
+      ptr.targetY = e.clientY;
+      ptr.active = true;
+      ptr.speed = Math.min(Math.hypot(dx, dy), 60);
+      if (ptr.speed > 26 && shockwaves.length < 5) {
+        triggerBurst(ptr.targetX, ptr.targetY, 0.7);
+      }
+      if (hudCoords) {
+        hudCoords.textContent = '(' + (e.clientX / Math.max(W, 1)).toFixed(2) + ', ' + (e.clientY / Math.max(H, 1)).toFixed(2) + ')';
+      }
+    }, { passive: true });
+
+    window.addEventListener('pointerdown', (e) => {
+      triggerBurst(e.clientX, e.clientY, 1.5);
+      chimePulse(e.clientX / Math.max(W, 1), e.clientY / Math.max(H, 1));
+    }, { passive: true });
+
+    const particles = Array.from({ length: 120 }, (_, i) => ({
+      angle: (i / 120) * Math.PI * 2,
+      radius: Math.random() * 0.55 + 0.12,
+      speed: (Math.random() * 0.007 + 0.003) * (i % 2 === 0 ? 1 : -1),
+      eccentricity: Math.random() * 0.3 + 0.85,
+      z: Math.random() * 0.8 + 0.3,
+      size: Math.random() * 2.1 + 1.6,
+      hueOffset: Math.random() * 360,
+      phase: Math.random() * Math.PI * 2
+    }));
+
+    function paint() {
+      if (document.hidden) {
+        requestAnimationFrame(paint);
+        return;
+      }
+      t += 0.009;
+      ptr.x += (ptr.targetX - ptr.x) * 0.065;
+      ptr.y += (ptr.targetY - ptr.y) * 0.065;
+
+      ctx.fillStyle = 'rgba(4, 6, 10, 0.16)';
+      ctx.fillRect(0, 0, W, H);
+
+      const maxDim = Math.min(W, H);
+      const breath = Math.sin(t * 1.8) * 0.5 + 0.5;
+      const baseR = maxDim * (0.37 + 0.07 * breath);
+      const defaultX = W > 900 ? W * 0.68 : W * 0.5;
+      const cx = ptr.active ? ptr.x : (defaultX + Math.sin(t * 0.4) * 35);
+      const cy = ptr.active ? ptr.y : (H * 0.48 + Math.cos(t * 0.5) * 25);
+
+      // Core warm aura
+      const aura = ctx.createRadialGradient(cx, cy, 0, cx, cy, baseR * 1.4);
+      const coreHue = (t * 70) % 360;
+      aura.addColorStop(0, 'hsla(' + coreHue + ', 100%, 70%, ' + (0.21 + 0.09 * breath) + ')');
+      aura.addColorStop(0.4, 'hsla(' + ((coreHue + 65) % 360) + ', 100%, 60%, 0.12)');
+      aura.addColorStop(1, 'transparent');
+      ctx.fillStyle = aura;
+      ctx.beginPath();
+      ctx.arc(cx, cy, baseR * 1.4, 0, Math.PI * 2);
+      ctx.fill();
+
+      if (fieldMode === 'bloom') {
+        // 12-circle Flower of Life
+        for (let k = 0; k < 12; k++) {
+          const a = (k / 12) * Math.PI * 2 + t * 0.18;
+          const rx = cx + Math.cos(a) * (baseR * 0.5);
+          const ry = cy + Math.sin(a) * (baseR * 0.5);
+          const hue = (t * 80 + k * 30) % 360;
+          ctx.beginPath();
+          ctx.arc(rx, ry, baseR * 0.5, 0, Math.PI * 2);
+          ctx.strokeStyle = 'hsla(' + hue + ', 100%, 72%, 0.58)';
+          ctx.lineWidth = 1.6;
+          ctx.stroke();
+        }
+        // 16-petal teamLab Chrysanthemum Rosette
+        for (let f = 0; f < 16; f++) {
+          const rot = (f / 16) * Math.PI * 2 + t * 0.25;
+          const foldHue = (t * 90 + f * 22.5) % 360;
+          ctx.beginPath();
+          for (let i = 0; i <= 140; i++) {
+            const u = (i / 140) * Math.PI * 2;
+            const r = baseR * 0.9 * (
+              0.45 * Math.sin(2 * u + t * 0.9) +
+              0.35 * Math.cos(4 * u - t * 0.7) +
+              0.20 * Math.sin(8 * u + t * 1.5)
+            );
+            const x = cx + r * Math.cos(u + rot);
+            const y = cy + r * Math.sin(u + rot);
+            i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+          }
+          ctx.strokeStyle = 'hsla(' + foldHue + ', 100%, 72%, 0.82)';
+          ctx.lineWidth = 1.9;
+          ctx.stroke();
+        }
+      } else if (fieldMode === 'lissajous') {
+        // Lissajoverse XY Stereo Vector Synthesizer
+        const fx = 3 + Math.round((cx / Math.max(W, 1)) * 5);
+        const fy = 2 + Math.round((cy / Math.max(H, 1)) * 5);
+        for (let layer = 0; layer < 4; layer++) {
+          const hue = (140 + layer * 45 + t * 60) % 360;
+          ctx.beginPath();
+          const steps = 420;
+          for (let i = 0; i <= steps; i++) {
+            const u = (i / steps) * Math.PI * 2;
+            const lx = cx + Math.sin(fx * u + t * 1.4 + layer * 0.3) * baseR * (0.95 - layer * 0.12);
+            const ly = cy + Math.sin(fy * u + layer * 0.5) * baseR * (0.95 - layer * 0.12);
+            i ? ctx.lineTo(lx, ly) : ctx.moveTo(lx, ly);
+          }
+          ctx.strokeStyle = 'hsla(' + hue + ', 100%, 70%, 0.85)';
+          ctx.lineWidth = 2.1;
+          ctx.stroke();
+        }
+      } else {
+        // Sony Polar Lattice Z_{2^32} 4-Nanowire Orientation Field
+        const angles = [0, Math.PI / 4, Math.PI / 2, (3 * Math.PI) / 4];
+        angles.forEach((ang, idx) => {
+          const hue = (idx * 90 + t * 50) % 360;
+          for (let rStep = -4; rStep <= 4; rStep++) {
+            const offset = rStep * (baseR * 0.22);
+            const nx = -Math.sin(ang + t * 0.2) * offset;
+            const ny = Math.cos(ang + t * 0.2) * offset;
+            ctx.beginPath();
+            for (let s = -1; s <= 1; s += 0.04) {
+              const dist = s * baseR * 1.1;
+              const wave = Math.sin(s * 6 + t * 3 + idx) * 14 * breath;
+              const px = cx + nx + Math.cos(ang + t * 0.2) * dist - Math.sin(ang + t * 0.2) * wave;
+              const py = cy + ny + Math.sin(ang + t * 0.2) * dist + Math.cos(ang + t * 0.2) * wave;
+              s === -1 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+            }
+            ctx.strokeStyle = 'hsla(' + hue + ', 100%, 72%, 0.68)';
+            ctx.lineWidth = 1.7;
+            ctx.stroke();
+          }
+        });
+      }
+
+      // Shockwave ripples
+      for (let sIdx = shockwaves.length - 1; sIdx >= 0; sIdx--) {
+        const sw = shockwaves[sIdx];
+        sw.r += sw.speed;
+        sw.alpha *= 0.965;
+        ctx.beginPath();
+        for (let p = 0; p <= 140; p++) {
+          const u = (p / 140) * Math.PI * 2;
+          const warp = 1 + 0.08 * Math.sin(sw.points * u + t * 4);
+          const sx = sw.x + sw.r * warp * Math.cos(u);
+          const sy = sw.y + sw.r * warp * Math.sin(u);
+          p ? ctx.lineTo(sx, sy) : ctx.moveTo(sx, sy);
+        }
+        const swHue = (sw.hue + sw.r * 0.4) % 360;
+        ctx.strokeStyle = 'hsla(' + swHue + ', 100%, 76%, ' + sw.alpha + ')';
+        ctx.lineWidth = 2.2;
+        ctx.stroke();
+        if (sw.alpha < 0.02 || sw.r > sw.maxR) shockwaves.splice(sIdx, 1);
+      }
+
+      // Scintillating Stardust + Optical Diffraction Spikes
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.angle += p.speed * (1 + ptr.speed * 0.012);
+        const rad = baseR * p.radius * 2.15 + Math.sin(t * 1.8 + p.phase) * 28 * breath;
+        const px = cx + rad * Math.cos(p.angle) * p.eccentricity;
+        const py = cy + rad * Math.sin(p.angle);
+        const pHue = (t * 90 + p.hueOffset + i * 3) % 360;
+        const pSize = p.size * (1 + 0.3 * breath);
+
+        ctx.beginPath();
+        ctx.arc(px, py, pSize, 0, Math.PI * 2);
+        ctx.fillStyle = 'hsla(' + pHue + ', 100%, 82%, ' + (0.5 + 0.45 * p.z) + ')';
+        ctx.fill();
+
+        if (i % 4 === 0) {
+          const spike = pSize * 2.5;
+          ctx.beginPath();
+          ctx.moveTo(px - spike, py); ctx.lineTo(px + spike, py);
+          ctx.moveTo(px, py - spike); ctx.lineTo(px, py + spike);
+          ctx.strokeStyle = 'hsla(' + pHue + ', 100%, 88%, 0.65)';
+          ctx.lineWidth = 1.1;
+          ctx.stroke();
+        }
+      }
+
+      requestAnimationFrame(paint);
+    }
+    requestAnimationFrame(paint);
+
+    // 7. Dual Audio Engine: 432 Hz Solfeggio Synth + The Residue of Proof v2 OST
+    let audioCtx = null;
+    let solfeggioOn = false;
+    let masterGain = null;
+    let oscs = [];
+    const btn432 = document.getElementById('btn-432');
+    const btnOst = document.getElementById('btn-ost');
+    let ostAudio = null;
+
+    function ensureAudioCtx() {
+      if (!audioCtx) {
+        const AC = window.AudioContext || window.webkitAudioContext;
+        if (AC) audioCtx = new AC();
+      }
+      if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+    }
+
+    function chimePulse(nx, ny) {
+      if (!solfeggioOn || !audioCtx) return;
+      const now = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      const ratios = [1, 9 / 8, 5 / 4, 3 / 2, 5 / 3, 2];
+      const r = ratios[Math.floor(nx * ratios.length) % ratios.length];
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(432 * r * (ny < 0.5 ? 2 : 1), now);
+      g.gain.setValueAtTime(0.05, now);
+      g.gain.exponentialRampToValueAtTime(0.0001, now + 1.4);
+      osc.connect(g);
+      g.connect(audioCtx.destination);
+      osc.start(now);
+      osc.stop(now + 1.45);
+    }
+
+    btn432?.addEventListener('click', () => {
+      ensureAudioCtx();
+      if (!audioCtx) return;
+      if (!solfeggioOn) {
+        masterGain = audioCtx.createGain();
+        masterGain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+        masterGain.gain.exponentialRampToValueAtTime(0.07, audioCtx.currentTime + 1.8);
+        masterGain.connect(audioCtx.destination);
+        oscs = [108, 216, 324, 432, 528].map((freq) => {
+          const o = audioCtx.createOscillator();
+          const g = audioCtx.createGain();
+          o.type = 'sine';
+          o.frequency.setValueAtTime(freq, audioCtx.currentTime);
+          g.gain.setValueAtTime(0.18, audioCtx.currentTime);
+          o.connect(g);
+          g.connect(masterGain);
+          o.start();
+          return o;
+        });
+        solfeggioOn = true;
+        btn432.classList.add('active');
+        btn432.textContent = '432 Hz · ON';
+      } else {
+        masterGain?.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.8);
+        setTimeout(() => {
+          oscs.forEach((o) => { try { o.stop(); } catch (_) {} });
+          oscs = [];
+          solfeggioOn = false;
+          btn432.classList.remove('active');
+          btn432.textContent = '432 Hz';
+        }, 850);
+      }
+    });
+
+    btnOst?.addEventListener('click', () => {
+      if (!ostAudio) {
+        ostAudio = new Audio('https://music.vaked.dev/audio/The_Residue_of_Proof_v2.mp3');
+        ostAudio.loop = true;
+        ostAudio.volume = 0.5;
+      }
+      if (ostAudio.paused) {
+        ostAudio.play().then(() => {
+          btnOst.classList.add('active');
+          btnOst.textContent = '♪ OST · ON';
+        }).catch(() => {});
+      } else {
+        ostAudio.pause();
+        btnOst.classList.remove('active');
+        btnOst.textContent = '♪ OST';
+      }
+    });
+  })();
   </script>
 </body>
 </html>

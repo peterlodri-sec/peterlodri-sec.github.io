@@ -18,6 +18,11 @@
 
 ## Projects & Sovereign Constellation
 
+- [teamlab.vaked.dev](https://teamlab.vaked.dev): Interactive 3D / WebGL portfolio, vector synthesis, and Japanese 履歴書 for teamLab Tokyo
+- [zeno.vaked.dev](https://zeno.vaked.dev): ZENO (銭・禅・善) Japanese Proof-of-Contribution Sovereign Neo-Bank
+- [8b-is/upz](https://github.com/8b-is/upz): incremental linker, 64B cache-line LitanyWire packer (`0x62` gate), and Top-100 Beehive consolidator (Zig 0.16 SIMD + Rust + C11 + Idris 2 + Perl 5)
+- [standardgalactic/spherepop-kernel](https://github.com/standardgalactic/spherepop-kernel): 32B/64B `0x62`-gate frame sealing and `BFP-64` Kleene `+AND=1` / `~NAND=-1` bitplanes
+- [sony/polar-densification#5](https://github.com/sony/polar-densification/pull/5): Laser Phoenix Polar Lattice `Z_{2^32}` integer CORDIC & rational `p/q` Stokes cone projection
 - [axiomquant.org](https://axiomquant.org): 19-chapter monograph on spectral rigidity, stochastic PDE, and random matrix theory
 - [DeepSiper Enthea](https://github.com/8b-is/deepsiper-enthea): multi-agent evaluation harness across isolated git worktrees with strict AST validation
 - [Classroom SOTA Training](https://github.com/8b-is/classroom-sota-training): Waldorf geometric-mean consensus distillation for edge student models
@@ -38,8 +43,9 @@
 ## Contact & Online Footprint
 
 - Personal Hub: https://peterl.dev
-- Constellation: https://vaked.dev | https://axiomquant.org | https://pocoo.vaked.dev
-- GitHub: https://github.com/peterlodri-sec | https://github.com/8b-is
+- Constellation: https://vaked.dev | https://teamlab.vaked.dev | https://zeno.vaked.dev | https://axiomquant.org | https://pocoo.vaked.dev
+- GitHub: https://github.com/peterlodri-sec | https://github.com/8b-is | https://github.com/standardgalactic
+- Codewars: https://www.codewars.com/users/peterlodri-sec (badges: /badges/large, /badges/small, /badges/micro)
 - Bluesky: https://bsky.app/profile/0xp3t3rl.bsky.social (@0xp3t3rl.bsky.social)
 - Telegram: @p3t3r_l
 - Email: cabotage@pm.me

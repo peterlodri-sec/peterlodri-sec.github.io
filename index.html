@@ -714,6 +714,7 @@
         <button type="button" class="hud-btn active" data-field-mode="bloom" title="Mode 1: teamLab Chrysanthemum & Flower of Life">01·Bloom</button>
         <button type="button" class="hud-btn" data-field-mode="lissajous" title="Mode 2: Lissajoverse XY Vector Oscilloscope">02·Lissajous</button>
         <button type="button" class="hud-btn" data-field-mode="polar" title="Mode 3: Sony Polar Lattice Z_{2^32} CORDIC">03·Polar</button>
+        <button type="button" class="hud-btn" data-field-mode="medusa" id="btn-medusa" title="Mode 4: ADA:MEDUSA ESP32-S3 WebSerial & Live p/q Wave">04·Medusa</button>
         <button type="button" class="hud-btn" id="btn-432" title="Toggle 432 Hz Solfeggio Interactive Synth">432 Hz</button>
         <button type="button" class="hud-btn" id="btn-ost" title="Toggle The Residue of Proof v2 Ambient OST">♪ OST</button>
       </div>
@@ -930,6 +931,7 @@
         <div class="lab-panel reveal">
           <div class="hud-controls" style="margin-bottom:14px">
             <button type="button" class="hud-btn active" data-preset="3761,3314,1,1,1,1,0,1">upz (3761/3314 · Where Is The Love?)</button>
+            <button type="button" class="hud-btn" data-preset="943,1000,-1,-1,-1,-1,-1,1">ADA:MEDUSA ESP32 (943/1000 · seal 0x0214)</button>
             <button type="button" class="hud-btn" data-preset="6554,199,1,-1,0,1,-1,1">wupz (6554/199 · 32.93x)</button>
             <button type="button" class="hud-btn" data-preset="4181,2584,1,1,0,1,-1,1">Sony Polar φ (4181/2584)</button>
             <button type="button" class="hud-btn" data-preset="3900,4000,1,1,1,0,1,1">zenUltraCooker (39/40)</button>
@@ -1429,6 +1431,25 @@
             i ? ctx.lineTo(lx, ly) : ctx.moveTo(lx, ly);
           }
           ctx.strokeStyle = 'hsla(' + hue + ', 100%, 70%, 0.85)';
+          ctx.lineWidth = 2.1;
+          ctx.stroke();
+        }
+      } else if (fieldMode === 'medusa') {
+        // ADA:MEDUSA ESP32-S3 4-Phase Rational Telemetry Wave (943/1000, 349/500, 459/500, 109/1000)
+        const medusaRatios = [943 / 1000, 349 / 500, 459 / 500, 109 / 1000];
+        for (let ph = 0; ph < 4; ph++) {
+          const rRatio = medusaRatios[ph];
+          const ringR = baseR * (0.35 + rRatio * 0.72);
+          const hue = (175 + ph * 48 + t * 65) % 360;
+          ctx.beginPath();
+          for (let i = 0; i <= 180; i++) {
+            const u = (i / 180) * Math.PI * 2;
+            const mod = 1 + 0.08 * Math.sin((ph + 3) * u + t * 3.2) * Math.cos(4 * u - t * 2);
+            const x = cx + ringR * mod * Math.cos(u + ph * 0.4);
+            const y = cy + ringR * mod * Math.sin(u + ph * 0.4);
+            i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+          }
+          ctx.strokeStyle = 'hsla(' + hue + ', 100%, 72%, 0.86)';
           ctx.lineWidth = 2.1;
           ctx.stroke();
         }
